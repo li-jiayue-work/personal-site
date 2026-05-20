@@ -55,7 +55,7 @@ export function Projects({ projects }: Props) {
             <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-4">
               {t.projects.featured}
             </p>
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="space-y-4">
               {featured.map((project, i) => (
                 <ProjectCard key={project.slug} project={project} index={i} featured />
               ))}
@@ -91,62 +91,119 @@ function ProjectCard({
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
     >
-      <Card
-        className={`group h-full border-border/60 hover:border-primary/30 hover:shadow-md transition-all duration-300 ${
-          featured ? "sm:col-span-1" : ""
-        }`}
-      >
-        <CardHeader>
-          <div className="flex items-start justify-between gap-2">
-            <CardTitle className="text-lg">
-              <Link
-                href={`/projects/${project.slug}`}
-                className="group-hover:text-primary transition-colors hover:underline"
-              >
-                {project.title}
-              </Link>
-            </CardTitle>
-            <div className="flex gap-2 shrink-0">
-              {project.github && (
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <Code2Icon className="h-4 w-4" />
-                </a>
-              )}
-              {project.demo && (
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <ExternalLinkIcon className="h-4 w-4" />
-                </a>
-              )}
+      <Card className="group h-full border-border/60 hover:border-primary/30 hover:shadow-md transition-all duration-300">
+        {featured ? (
+          <div className="p-6 sm:flex sm:gap-6">
+            <div className="flex-1 min-w-0">
+              <div className="flex items-start justify-between gap-2 mb-3">
+                <h3 className="text-xl font-semibold tracking-tight">
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="group-hover:text-primary transition-colors hover:underline"
+                  >
+                    {project.title}
+                  </Link>
+                </h3>
+                <div className="flex gap-2 shrink-0">
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      <Code2Icon className="h-4 w-4" />
+                    </a>
+                  )}
+                  {project.demo && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      <ExternalLinkIcon className="h-4 w-4" />
+                    </a>
+                  )}
+                </div>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                {project.description}
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                {project.tech.map((t) => (
+                  <Badge key={t} variant="secondary" className="text-xs font-normal">
+                    {t}
+                  </Badge>
+                ))}
+              </div>
             </div>
+            {project.result && (
+              <div className="sm:w-48 shrink-0 mt-4 sm:mt-0 sm:border-l sm:border-border sm:pl-6 sm:flex sm:items-center">
+                <div>
+                  <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider mb-1">
+                    Result
+                  </p>
+                  <p className="text-sm font-medium text-primary">{project.result}</p>
+                </div>
+              </div>
+            )}
           </div>
-          <CardDescription className="line-clamp-2">
-            {project.description}
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-3">
-          <div className="flex flex-wrap gap-1.5">
-            {project.tech.map((t) => (
-              <Badge key={t} variant="secondary" className="text-xs font-normal">
-                {t}
-              </Badge>
-            ))}
-          </div>
-          {project.result && (
-            <div className="pt-2 border-t border-border">
-              <p className="text-sm font-medium text-primary">{project.result}</p>
-            </div>
-          )}
-        </CardContent>
+        ) : (
+          <>
+            <CardHeader>
+              <div className="flex items-start justify-between gap-2">
+                <CardTitle className="text-lg">
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="group-hover:text-primary transition-colors hover:underline"
+                  >
+                    {project.title}
+                  </Link>
+                </CardTitle>
+                <div className="flex gap-2 shrink-0">
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      <Code2Icon className="h-4 w-4" />
+                    </a>
+                  )}
+                  {project.demo && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      <ExternalLinkIcon className="h-4 w-4" />
+                    </a>
+                  )}
+                </div>
+              </div>
+              <CardDescription className="line-clamp-2">
+                {project.description}
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <div className="flex flex-wrap gap-1.5">
+                {project.tech.map((t) => (
+                  <Badge key={t} variant="secondary" className="text-xs font-normal">
+                    {t}
+                  </Badge>
+                ))}
+              </div>
+              {project.result && (
+                <div className="pt-2 border-t border-border">
+                  <p className="text-sm font-medium text-primary">{project.result}</p>
+                </div>
+              )}
+            </CardContent>
+          </>
+        )}
       </Card>
     </motion.div>
   );

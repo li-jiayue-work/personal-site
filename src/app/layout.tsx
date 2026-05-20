@@ -5,13 +5,13 @@ import { LanguageProvider } from "@/components/language-provider";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "李佳悦 | 商科 × AI × 数据",
+  title: "李佳悦 | 商业分析与 AI 工作流",
   description:
-    "李佳悦的个人主页 — 工商管理背景，正在向数据分析、AI、Agent 自动化方向转型。",
+    "李佳悦的个人主页 — 专注于数据分析、AI 辅助工作流与增长策略。",
   keywords: ["portfolio", "AI", "data analytics", "business", "developer"],
   openGraph: {
-    title: "李佳悦 | 商科 × AI × 数据",
-    description: "商科 × AI × 数据 — 个人主页与项目展示。",
+    title: "李佳悦 | 商业分析与 AI 工作流",
+    description: "专注于数据分析、AI 辅助工作流与增长策略。",
     type: "website",
   },
 };

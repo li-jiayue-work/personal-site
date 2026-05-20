@@ -1,4 +1,5 @@
 import { Hero } from "@/components/hero";
+import { KpiCards } from "@/components/kpi-cards";
 import { About } from "@/components/about";
 import { Education } from "@/components/education";
 import { Projects } from "@/components/projects";
@@ -14,12 +15,13 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <KpiCards />
       <About />
       <Education />
       <Projects projects={projects} />
-      <Experience />
       <Skills />
       <Strengths />
+      <Experience />
       <Contact />
     </>
   );

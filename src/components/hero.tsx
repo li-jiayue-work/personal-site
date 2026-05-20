@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowDownIcon, FileTextIcon, MailIcon } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { useLang } from "@/components/language-provider";
 
@@ -77,12 +77,50 @@ export function Hero() {
           className="flex justify-center lg:justify-end"
         >
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-chart-2/20 rounded-3xl blur-2xl" />
-            <Avatar className="h-64 w-64 sm:h-80 sm:w-80 rounded-3xl border-2 border-border shadow-lg">
-              <AvatarFallback className="text-7xl bg-card rounded-3xl">
-                李
-              </AvatarFallback>
-            </Avatar>
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-chart-2/20 rounded-2xl blur-2xl" />
+            <Card className="relative w-72 sm:w-80 rounded-2xl border-border/60 shadow-lg overflow-hidden">
+              <CardContent className="p-5 space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                    Dashboard Overview
+                  </span>
+                  <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="space-y-1">
+                    <p className="text-2xl font-bold">10w+</p>
+                    <p className="text-[10px] text-muted-foreground">Orders</p>
+                  </div>
+                  <div className="space-y-1">
+                    <p className="text-2xl font-bold">62%</p>
+                    <p className="text-[10px] text-muted-foreground">Retention</p>
+                  </div>
+                  <div className="space-y-1">
+                    <p className="text-2xl font-bold text-emerald-500">+18%</p>
+                    <p className="text-[10px] text-muted-foreground">GMV Growth</p>
+                  </div>
+                  <div className="space-y-1">
+                    <p className="text-2xl font-bold">4.2%</p>
+                    <p className="text-[10px] text-muted-foreground">Conv. Rate</p>
+                  </div>
+                </div>
+                <div className="space-y-1.5">
+                  <div className="flex items-center justify-between text-[10px] text-muted-foreground">
+                    <span>Revenue Trend</span>
+                    <span className="text-emerald-500">+12.5%</span>
+                  </div>
+                  <div className="flex items-end gap-1 h-10">
+                    {[40, 55, 35, 60, 48, 72, 65, 85, 70, 90, 78, 95].map((h, i) => (
+                      <div
+                        key={i}
+                        className="flex-1 bg-primary/40 rounded-sm"
+                        style={{ height: `${h}%` }}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </motion.div>
       </div>
