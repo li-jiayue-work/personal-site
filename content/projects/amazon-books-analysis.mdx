@@ -1,15 +1,17 @@
 ---
-title: "Amazon Books 市场情报分析"
+title: "亚马逊畅销书市场深度分析"
 description: "基于 500 本 Amazon 畅销书真实数据的多维度市场分析，含可视化图表与 AI 驱动的运营策略建议。"
-tech: ["Python", "pandas", "matplotlib", "seaborn", "Data Visualization", "AI-Assisted Analysis"]
-result: "分析 500 本畅销书，产出了 7 张可视化图表和一份英文交互式分析报告"
+tech: ["Python", "pandas", "matplotlib", "seaborn", "Data Visualization"]
+result: "分析 500 本畅销书，产出 7 张可视化图表和一份英文交互式分析报告"
 github: "https://github.com/li-jiayue-work/personal-site"
 demo: "/reports/amazon-books.html"
 featured: true
-dataset: "Amazon Best Sellers 数据集，含 500 本书、15 个字段（Rank, Title, Author, Category, Sub-Genre, Format, Price, Rating, Reviews, Weeks on List, Publisher, Year Published, ISBN, Amazon BSR）"
-insights: ["格式是定价第一驱动力，Audiobook 均价是 Kindle 的 2.9 倍", "评分通胀严重（均值4.41），评论量才是信任信号", "2023-2026出版量占47%，市场窗口正在收窄", "出版商CR3仅10%，充分竞争市场新进入者仍有机会"]
+dataset: "Kaggle / 500 本 Amazon Best Sellers 真实数据，含 15 个字段（Rank, Title, Author, Category, Sub-Genre, Format, Price, Rating, Reviews, Weeks on List, Publisher, Year Published, ISBN, Amazon BSR）"
+toolchain: "DBeaver（数据清洗）→ Python（分析）→ Claude Code（可视化报告）"
+conclusion: "格式是定价的第一驱动力——Audiobook 均价 $25.06 是 Kindle $8.65 的 2.9 倍，格式组合策略是定价核心杠杆。85%+ 图书评分落在 4.0-4.8 区间，标准差仅 0.26，评论量才是真正的信任信号，运营重心应从"维持高分"转向"激励真实评论产出"。"
+charts: ["output_01_overview", "output_02_price_rating", "output_03_subgenres"]
+insights: ["格式是定价第一驱动力——Audiobook 均价 $25.06 vs Kindle $8.65，格式比内容品类更能解释价格差异", "评分通胀严重——85%+ 评分落在 4.0-4.8，标准差仅 0.26，评论数量才是更好的质量信号", "2023-2026 出版量占 47%，近四年出版量超此前 58 年总和，市场窗口正在收窄", "Non-Fiction 定价更高但评分更低——读者期望值差异导致价值感知裂缝，需注意内容厚度与价格匹配"]
 ---
-
 ## 项目背景
 
 从 Amazon Best Sellers 榜单获取 500 本畅销书的真实数据，覆盖 1965-2026 年出版的图书。通过 Python 进行多维度数据挖掘，识别 Amazon 图书市场的竞争格局、定价规律与读者偏好，输出可落地的运营优化建议。
