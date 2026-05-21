@@ -124,34 +124,7 @@ export default async function ProjectPage({ params }: Props) {
         {/* Body content (from MDX) */}
         {project.body && (
           <SectionCard title="Details">
-            <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
-              {project.body.split("\n").filter(Boolean).map((line, i) => {
-                if (line.startsWith("## ")) {
-                  return <h3 key={i} className="text-base font-semibold text-foreground pt-2">{line.slice(3)}</h3>;
-                }
-                if (line.startsWith("- ")) {
-                  return <li key={i} className="ml-4">{line.slice(2)}</li>;
-                }
-                if (line.startsWith("![")) {
-                  const srcMatch = line.match(/\(([^)]+)\)/);
-                  if (srcMatch) {
-                    return <img key={i} src={srcMatch[1]} alt="" className="w-full rounded-lg border border-border/60 my-2" />;
-                  }
-                }
-                if (line.startsWith("[")) {
-                  const linkMatch = line.match(/\[([^\]]+)\]\(([^)]+)\)/);
-                  if (linkMatch) {
-                    return (
-                      <a key={i} href={linkMatch[2]} target="_blank" rel="noopener noreferrer"
-                        className="text-primary hover:underline inline-flex items-center gap-1">
-                        {linkMatch[1]} <ExternalLinkIcon className="h-3 w-3" />
-                      </a>
-                    );
-                  }
-                }
-                return <p key={i}>{line}</p>;
-              })}
-            </div>
+            <BodyRenderer body={project.body} />
           </SectionCard>
         )}
 
@@ -180,6 +153,106 @@ export default async function ProjectPage({ params }: Props) {
       </div>
     </div>
   );
+}
+
+function formatLine(text: string): React.ReactNode {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return <strong key={i} className="text-foreground">{part.slice(2, -2)}</strong>;
+    }
+    return part;
+  });
+}
+
+function BodyRenderer({ body }: { body: string }) {
+  const lines = body.split("\n");
+  const elements: React.ReactNode[] = [];
+  let i = 0;
+
+  while (i < lines.length) {
+    const line = lines[i];
+    if (!line.trim()) { i++; continue; }
+
+    // ## heading
+    if (line.startsWith("## ")) {
+      elements.push(<h3 key={i} className="text-base font-semibold text-foreground pt-2">{line.slice(3)}</h3>);
+      i++;
+      continue;
+    }
+
+    // ### sub-heading
+    if (line.startsWith("### ")) {
+      elements.push(<h4 key={i} className="text-sm font-semibold text-foreground pt-1">{line.slice(4)}</h4>);
+      i++;
+      continue;
+    }
+
+    // ``` code block
+    if (line.startsWith("```")) {
+      const codeLines: string[] = [];
+      i++;
+      while (i < lines.length && !lines[i].startsWith("```")) {
+        codeLines.push(lines[i]);
+        i++;
+      }
+      i++; // skip closing ```
+      elements.push(
+        <pre key={i} className="bg-muted/50 rounded-lg p-3 text-xs overflow-x-auto">
+          <code>{codeLines.join("\n")}</code>
+        </pre>
+      );
+      continue;
+    }
+
+    // - list items (group consecutive)
+    if (line.startsWith("- ")) {
+      const listItems: React.ReactNode[] = [];
+      while (i < lines.length && lines[i].startsWith("- ")) {
+        listItems.push(
+          <li key={i} className="ml-4 text-sm text-muted-foreground">
+            {formatLine(lines[i].slice(2))}
+          </li>
+        );
+        i++;
+      }
+      elements.push(<ul key={i} className="space-y-1 my-2">{listItems}</ul>);
+      continue;
+    }
+
+    // ![image
+    if (line.startsWith("![")) {
+      const srcMatch = line.match(/\(([^)]+)\)/);
+      if (srcMatch) {
+        elements.push(
+          <img key={i} src={srcMatch[1]} alt="" className="w-full rounded-lg border border-border/60 my-2" />
+        );
+      }
+      i++;
+      continue;
+    }
+
+    // [link
+    if (line.startsWith("[")) {
+      const linkMatch = line.match(/\[([^\]]+)\]\(([^)]+)\)/);
+      if (linkMatch) {
+        elements.push(
+          <a key={i} href={linkMatch[2]} target="_blank" rel="noopener noreferrer"
+            className="text-primary hover:underline inline-flex items-center gap-1 text-sm">
+            {linkMatch[1]} <ExternalLinkIcon className="h-3 w-3" />
+          </a>
+        );
+      }
+      i++;
+      continue;
+    }
+
+    // plain paragraph
+    elements.push(<p key={i} className="text-sm text-muted-foreground">{formatLine(line)}</p>);
+    i++;
+  }
+
+  return <div className="space-y-3 text-sm leading-relaxed">{elements}</div>;
 }
 
 function SectionCard({ title, children }: { title: string; children: React.ReactNode }) {
