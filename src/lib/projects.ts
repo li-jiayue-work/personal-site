@@ -11,6 +11,8 @@ export interface ProjectMeta {
   demo?: string;
   image?: string;
   featured?: boolean;
+  dataset?: string;
+  insights?: string[];
   body: string;
 }
 
@@ -53,7 +55,7 @@ function extractFrontmatter(raw: string): {
     const [key, ...rest] = line.split(":");
     if (key && rest.length) {
       let val: string | string[] = rest.join(":").trim();
-      if (key === "tech") {
+      if (key === "tech" || key === "insights") {
         val = val
           .replace(/[\[\]]/g, "")
           .split(",")
