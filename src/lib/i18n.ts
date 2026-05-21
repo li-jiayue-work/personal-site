@@ -25,12 +25,12 @@ const dict = {
       resume: "简历",
     },
     kpi: {
-      badge: "核心指标",
+      badge: "关键数据",
       items: [
-        { value: "10w+", label: "订单数据已分析" },
-        { value: "12", label: "SQL 分析查询" },
-        { value: "4", label: "业务 Dashboard" },
-        { value: "6w+", label: "技术内容阅读量" },
+        { value: "500", label: "Amazon 畅销书已分析" },
+        { value: "7", label: "可视化图表产出" },
+        { value: "48", label: "子品类覆盖分析" },
+        { value: "6w+", label: "CSDN 技术内容阅读量" },
       ],
     },
     about: {
@@ -78,12 +78,12 @@ const dict = {
       description: "",
       items: [
         {
-          role: "数据分析与 AI 工具实践",
-          company: "自主学习",
-          period: "2025.05 — 至今",
+          role: "Amazon 图书市场数据分析",
+          company: "个人项目",
+          period: "2026.05",
           description:
-            "搭建电商用户行为分析系统（10w+ 订单数据），构建 SQL 分析查询体系，实践 AI 辅助数据分析与洞察生成。",
-          results: ["SQL 数据分析", "用户行为分析", "AI 工作流", "Dashboard 搭建"],
+            "基于 Amazon 500 本畅销书真实数据，用 Python 完成全流程数据可视化（7 张专业图表），并输出一份交互式 HTML 分析报告，含 AI 驱动的运营策略建议。",
+          results: ["Python 数据分析", "数据可视化", "AI 辅助洞察", "市场分析报告"],
         },
         {
           role: "工商管理本科 + 编程基础",
@@ -102,11 +102,11 @@ const dict = {
       groups: [
         {
           category: "数据分析",
-          skills: ["SQL", "Python", "Excel", "Tableau", "数据可视化"],
+          skills: ["SQL", "Python", "Excel"],
         },
         {
           category: "AI 辅助分析",
-          skills: ["提示词工程", "AI 工作流", "自动报告生成", "Claude Code"],
+          skills: ["AI 工作流", "Claude Code"],
         },
         {
           category: "业务理解",
@@ -114,7 +114,7 @@ const dict = {
         },
         {
           category: "工具链",
-          skills: ["Git", "VS Code", "Cursor", "ChatGPT"],
+          skills: ["Git", "VS Code", "Cursor", "ChatGPT", "DBeaver", "Claude"],
         },
       ],
     },
@@ -186,10 +186,10 @@ const dict = {
     kpi: {
       badge: "Key Metrics",
       items: [
-        { value: "100K+", label: "Orders Analyzed" },
-        { value: "12", label: "SQL Queries" },
-        { value: "4", label: "Dashboards" },
-        { value: "60K+", label: "Content Reads" },
+        { value: "500", label: "Amazon Books Analyzed" },
+        { value: "7", label: "Charts Generated" },
+        { value: "48", label: "Sub-Genres Covered" },
+        { value: "60K+", label: "CSDN Content Reads" },
       ],
     },
     about: {
@@ -239,12 +239,12 @@ const dict = {
       description: "",
       items: [
         {
-          role: "Data Analytics & AI Practice",
-          company: "Self-directed",
-          period: "2025.05 — Present",
+          role: "Amazon Books Market Analysis",
+          company: "Personal Project",
+          period: "2026.05",
           description:
-            "Built e-commerce user behavior analysis system (100K+ orders), developed SQL analysis query framework, practiced AI-assisted data analysis and insight generation.",
-          results: ["SQL Analytics", "User Behavior Analysis", "AI Workflow", "Dashboards"],
+            "Analyzed 500 real Amazon bestseller records using Python — produced 7 professional charts and an interactive HTML report with AI-generated strategic recommendations.",
+          results: ["Python Analytics", "Data Visualization", "AI-Assisted Insights", "Market Report"],
         },
         {
           role: "BBA + Programming Foundation",
@@ -263,11 +263,11 @@ const dict = {
       groups: [
         {
           category: "Data Analytics",
-          skills: ["SQL", "Python", "Excel", "Tableau", "Data Visualization"],
+          skills: ["SQL", "Python", "Excel"],
         },
         {
           category: "AI-Assisted Analysis",
-          skills: ["Prompt Engineering", "AI Workflow", "Auto Reporting", "Claude Code"],
+          skills: ["AI Workflow", "Claude Code"],
         },
         {
           category: "Business Acumen",
@@ -275,7 +275,7 @@ const dict = {
         },
         {
           category: "Toolchain",
-          skills: ["Git", "VS Code", "Cursor", "ChatGPT"],
+          skills: ["Git", "VS Code", "Cursor", "ChatGPT", "DBeaver", "Claude"],
         },
       ],
     },

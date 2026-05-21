@@ -82,35 +82,35 @@ export function Hero() {
               <CardContent className="p-5 space-y-4">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                    Dashboard Overview
+                    Amazon Books Analysis
                   </span>
                   <span className="h-2 w-2 rounded-full bg-emerald-500" />
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   <div className="space-y-1">
-                    <p className="text-2xl font-bold">10w+</p>
-                    <p className="text-[10px] text-muted-foreground">Orders</p>
+                    <p className="text-2xl font-bold">500</p>
+                    <p className="text-[10px] text-muted-foreground">Books Analyzed</p>
                   </div>
                   <div className="space-y-1">
-                    <p className="text-2xl font-bold">62%</p>
-                    <p className="text-[10px] text-muted-foreground">Retention</p>
+                    <p className="text-2xl font-bold">$16.83</p>
+                    <p className="text-[10px] text-muted-foreground">Avg Price</p>
                   </div>
                   <div className="space-y-1">
-                    <p className="text-2xl font-bold text-emerald-500">+18%</p>
-                    <p className="text-[10px] text-muted-foreground">GMV Growth</p>
+                    <p className="text-2xl font-bold text-emerald-500">4.41</p>
+                    <p className="text-[10px] text-muted-foreground">Avg Rating / 5</p>
                   </div>
                   <div className="space-y-1">
-                    <p className="text-2xl font-bold">4.2%</p>
-                    <p className="text-[10px] text-muted-foreground">Conv. Rate</p>
+                    <p className="text-2xl font-bold">6.3M</p>
+                    <p className="text-[10px] text-muted-foreground">Total Reviews</p>
                   </div>
                 </div>
                 <div className="space-y-1.5">
                   <div className="flex items-center justify-between text-[10px] text-muted-foreground">
-                    <span>Revenue Trend</span>
-                    <span className="text-emerald-500">+12.5%</span>
+                    <span>Price Distribution</span>
+                    <span className="text-emerald-500">$4.23–$34.09</span>
                   </div>
                   <div className="flex items-end gap-1 h-10">
-                    {[40, 55, 35, 60, 48, 72, 65, 85, 70, 90, 78, 95].map((h, i) => (
+                    {[25, 60, 90, 100, 85, 70, 50, 35, 20, 15, 10, 5].map((h, i) => (
                       <div
                         key={i}
                         className="flex-1 bg-primary/40 rounded-sm"
