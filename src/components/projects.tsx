@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLinkIcon, Code2Icon } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -100,30 +99,6 @@ function ProjectCard({
                   <h3 className="text-xl font-semibold tracking-tight group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  <div className="flex gap-2 shrink-0" onClick={(e) => e.preventDefault()}>
-                    {project.github && (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground transition-colors"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <Code2Icon className="h-4 w-4" />
-                      </a>
-                    )}
-                    {project.demo && (
-                      <a
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground transition-colors"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <ExternalLinkIcon className="h-4 w-4" />
-                      </a>
-                    )}
-                  </div>
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                   {project.description}
@@ -154,30 +129,6 @@ function ProjectCard({
                   <CardTitle className="text-lg group-hover:text-primary transition-colors">
                     {project.title}
                   </CardTitle>
-                  <div className="flex gap-2 shrink-0" onClick={(e) => e.preventDefault()}>
-                    {project.github && (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground transition-colors"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <Code2Icon className="h-4 w-4" />
-                      </a>
-                    )}
-                    {project.demo && (
-                      <a
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground transition-colors"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <ExternalLinkIcon className="h-4 w-4" />
-                      </a>
-                    )}
-                  </div>
                 </div>
                 <CardDescription className="line-clamp-2">
                   {project.description}
