@@ -58,7 +58,6 @@ const dict = {
       courses: [
         { name: "微观经济学", score: "96" },
         { name: "宏观经济学", score: "91" },
-        { name: "计算机基础与大数据分析", score: "85" },
         { name: "统计学B", score: "83" },
         { name: "市场营销学B" },
         { name: "管理学原理" },
@@ -218,7 +217,6 @@ const dict = {
       courses: [
         { name: "Microeconomics", score: "96" },
         { name: "Macroeconomics", score: "91" },
-        { name: "CS Fundamentals & Big Data", score: "85" },
         { name: "Statistics B", score: "83" },
         { name: "Marketing B" },
         { name: "Principles of Management" },

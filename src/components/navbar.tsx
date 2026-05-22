@@ -15,7 +15,6 @@ export function Navbar() {
   const links = [
     { href: "#hero", label: t.nav.index },
     { href: "#about", label: t.nav.about },
-    { href: "#education", label: t.nav.education },
     { href: "#projects", label: t.nav.projects },
     { href: "#experience", label: t.nav.experience },
     { href: "#skills", label: t.nav.skills },

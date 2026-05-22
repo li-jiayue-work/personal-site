@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeftIcon, ExternalLinkIcon, Code2Icon, FileTextIcon } from "lucide-react";
+import { ArrowLeftIcon, ExternalLinkIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -35,28 +35,10 @@ export default async function ProjectPage({ params }: Props) {
         {/* Title Card */}
         <Card className="border-border/60 mb-6">
           <CardHeader>
-            <div className="flex items-start justify-between gap-4 flex-wrap">
-              <div>
-                <CardTitle className="text-2xl">{project.title}</CardTitle>
-                <p className="mt-2 text-muted-foreground leading-relaxed">
-                  {project.description}
-                </p>
-              </div>
-              <div className="flex gap-2 shrink-0">
-                {project.github && (
-                  <a href={project.github} target="_blank" rel="noopener noreferrer"
-                    className={buttonVariants({ variant: "outline", size: "sm" })}>
-                    <Code2Icon className="h-4 w-4 mr-1" /> GitHub
-                  </a>
-                )}
-                {project.demo && (
-                  <a href={project.demo} target="_blank" rel="noopener noreferrer"
-                    className={buttonVariants({ variant: "outline", size: "sm" })}>
-                    <ExternalLinkIcon className="h-4 w-4 mr-1" /> Demo
-                  </a>
-                )}
-              </div>
-            </div>
+            <CardTitle className="text-2xl">{project.title}</CardTitle>
+            <p className="mt-2 text-muted-foreground leading-relaxed">
+              {project.description}
+            </p>
             <div className="flex flex-wrap gap-1.5 mt-4">
               {project.tech.map((t) => (
                 <Badge key={t} variant="secondary" className="text-xs font-normal">{t}</Badge>
@@ -128,28 +110,17 @@ export default async function ProjectPage({ params }: Props) {
           </SectionCard>
         )}
 
-        {/* Report CTA */}
-        {project.demo && (
-          <Card className="border-border/60 mt-6 bg-accent/30">
-            <CardContent className="p-6 text-center">
-              <FileTextIcon className="h-8 w-8 text-primary/60 mx-auto mb-3" />
-              <p className="text-sm font-medium">完整分析报告</p>
-              <p className="text-xs text-muted-foreground mt-1 mb-4">
-                包含完整的数据分析过程、可视化图表与 AI 运营建议
-              </p>
-              <a
-                href={project.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={buttonVariants({ size: "sm" })}
-              >
-                <ExternalLinkIcon className="h-4 w-4 mr-1" />
-                查看完整报告
-              </a>
-            </CardContent>
-          </Card>
+        {/* Embedded Report (iframe) */}
+        {project.demo && project.demo.endsWith(".html") && (
+          <SectionCard title="Interactive Report">
+            <iframe
+              src={project.demo}
+              className="w-full rounded-lg border border-border/60"
+              style={{ height: "80vh", minHeight: "600px" }}
+              title="Interactive Report"
+            />
+          </SectionCard>
         )}
-
       </div>
     </div>
   );
@@ -196,7 +167,7 @@ function BodyRenderer({ body }: { body: string }) {
         codeLines.push(lines[i]);
         i++;
       }
-      i++; // skip closing ```
+      i++;
       elements.push(
         <pre key={i} className="bg-muted/50 rounded-lg p-3 text-xs overflow-x-auto">
           <code>{codeLines.join("\n")}</code>
@@ -232,13 +203,20 @@ function BodyRenderer({ body }: { body: string }) {
       continue;
     }
 
-    // [link
+    // [link — external links open in new tab
     if (line.startsWith("[")) {
       const linkMatch = line.match(/\[([^\]]+)\]\(([^)]+)\)/);
       if (linkMatch) {
+        const href = linkMatch[2];
+        const isExternal = href.startsWith("http");
         elements.push(
-          <a key={i} href={linkMatch[2]} target="_blank" rel="noopener noreferrer"
-            className="text-primary hover:underline inline-flex items-center gap-1 text-sm">
+          <a
+            key={i}
+            href={href}
+            target={isExternal ? "_blank" : undefined}
+            rel={isExternal ? "noopener noreferrer" : undefined}
+            className="text-primary hover:underline inline-flex items-center gap-1 text-sm"
+          >
             {linkMatch[1]} <ExternalLinkIcon className="h-3 w-3" />
           </a>
         );
