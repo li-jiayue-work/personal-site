@@ -119,6 +119,16 @@ export default async function ProjectPage({ params }: Props) {
               style={{ height: "80vh", minHeight: "600px" }}
               title="Interactive Report"
             />
+            <div className="mt-3 text-center">
+              <a
+                href={project.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-primary hover:underline inline-flex items-center gap-1"
+              >
+                在新窗口查看完整报告 <ExternalLinkIcon className="h-3 w-3" />
+              </a>
+            </div>
           </SectionCard>
         )}
       </div>
