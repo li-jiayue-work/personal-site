@@ -181,18 +181,17 @@ body {
 .chart-container {
   background: var(--card);
   border-radius: var(--radius);
-  padding: 24px;
+  padding: 16px;
   margin: 20px 0;
   box-shadow: var(--shadow);
   border: 1px solid var(--border);
 }
-.chart-container.full { padding: 16px; }
 .chart-container .chart-caption {
   text-align: center;
   font-size: 13px;
   font-weight: 600;
   color: var(--navy);
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 .chart-img {
   width: 100%;
@@ -200,8 +199,6 @@ body {
   border-radius: 6px;
   display: block;
 }
-.chart-img.max-md { max-width: 520px; margin: 0 auto; }
-.chart-img.max-sm { max-width: 380px; margin: 0 auto; }
 
 /* Two column */
 .cols-2 {
@@ -210,7 +207,11 @@ body {
   gap: 20px;
   margin: 20px 0;
 }
-.cols-2 .chart-container { margin: 0; }
+.cols-2 .chart-container {
+  margin: 0;
+  padding: 12px;
+}
+.cols-2 .chart-caption { font-size: 12px; margin-bottom: 8px; }
 @media (max-width: 768px) { .cols-2 { grid-template-columns: 1fr; } }
 
 /* Insights cards */
@@ -409,7 +410,7 @@ hr { border: none; border-top: 1px solid var(--border); margin: 0; }
     <p style="margin-top:12px; font-size:13px; color:#94a3b8;">数据时间跨度：1965 - 2026 年出版 | 71% 的图书集中在 2020-2026 年 | Fiction 50.8% vs Non-Fiction 49.2%，分布均衡</p>
   </div>
 
-  <div class="chart-container full">
+  <div class="chart-container">
     <div class="chart-caption">数据全景概览 — 价格分布 · 评分分布 · 格式构成 · 年份趋势</div>
     <img class="chart-img" src="/reports/amazon-books-analysis/charts/output_01_overview.png" alt="数据概览">
   </div>
@@ -460,7 +461,7 @@ hr { border: none; border-top: 1px solid var(--border); margin: 0; }
     </div>
   </div>
 
-  <div class="chart-container full">
+  <div class="chart-container">
     <div class="chart-caption">年份趋势与 BSR 排名分析</div>
     <img class="chart-img" src="/reports/amazon-books-analysis/charts/output_05_year_bsr.png" alt="年份趋势与BSR分析">
   </div>
@@ -564,9 +565,9 @@ hr { border: none; border-top: 1px solid var(--border); margin: 0; }
     <p>56 家出版商中，<strong>Convergent Books、Scholastic Press、Tor Books、Bloomsbury Publishing</strong> 以 16-17 本位列第一梯队（各占约 3.4%），CR3 仅 10%。没有一家出版商控制超过 3.5% 的市场份额——这是一个充分竞争的买方市场，新进入者仍有空间。</p>
   </div>
 
-  <div class="chart-container full">
+  <div class="chart-container">
     <div class="chart-caption">子类别分布 Top 15</div>
-    <img class="chart-img max-md" src="/reports/amazon-books-analysis/charts/output_03_subgenres.png" alt="子类别分布">
+    <img class="chart-img" src="/reports/amazon-books-analysis/charts/output_03_subgenres.png" alt="子类别分布">
   </div>
   <div class="cols-2">
     <div class="chart-container">
@@ -575,7 +576,7 @@ hr { border: none; border-top: 1px solid var(--border); margin: 0; }
     </div>
     <div class="chart-container">
       <div class="chart-caption">相关性热力图</div>
-      <img class="chart-img max-sm" src="/reports/amazon-books-analysis/charts/output_07_correlation.png" alt="相关性热力图">
+      <img class="chart-img" src="/reports/amazon-books-analysis/charts/output_07_correlation.png" alt="相关性热力图">
     </div>
   </div>
 </div></div>
