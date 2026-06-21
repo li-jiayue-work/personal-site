@@ -14,17 +14,17 @@ export function generateStaticParams() {
   return getAllProjects().map((p) => ({ slug: p.slug }));
 }
 
-const reportData: Record<string, { label: string; url: string; desc: string }[]> = {
-  "ecommerce-analysis": [
+const reportData: Record<string, { label: string; url: string }[]> = {
+  "amazon-products": [
     {
       label: "Amazon Product Landscape — Market Intelligence Report 2026",
       url: "/reports/amazon-analysis/",
-      desc: "基于 Amazon India 平台 2,928 条商品数据，覆盖 9 大品类，从价格、折扣、评分、评论量四维交叉分析，AI 驱动选品与定价策略洞察。",
     },
+  ],
+  "amazon-books-analysis": [
     {
       label: "Amazon Books Market Intelligence Report 2026",
       url: "/reports/amazon-books-analysis/",
-      desc: "基于 Amazon 500 本畅销书数据（1965-2026），覆盖 48 个子品类、56 家出版商，分析价格策略、读者偏好与出版格局，输出图书行业运营建议。",
     },
   ],
 };
@@ -126,7 +126,7 @@ export default async function ProjectPage({ params }: Props) {
         )}
 
         {/* Embedded Report (iframe) */}
-        {project.demo && project.demo.endsWith(".html") && (
+        {project.demo && (project.demo.endsWith(".html") || project.demo.startsWith("/reports/")) && (
           <SectionCard title="Interactive Report">
             <iframe
               src={project.demo}
@@ -148,7 +148,7 @@ export default async function ProjectPage({ params }: Props) {
         )}
 
         {/* Complete Reports */}
-        {reportData[slug] && reportData[slug].length > 0 && (
+        {reportData[slug] && (
           <SectionCard title="完整分析报告">
             <div className="space-y-2">
               {reportData[slug].map((report, i) => (
