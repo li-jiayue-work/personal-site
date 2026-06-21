@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeftIcon, ExternalLinkIcon } from "lucide-react";
+import { ArrowLeftIcon, ExternalLinkIcon, FileTextIcon, BarChart3Icon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -13,6 +13,21 @@ interface Props {
 export function generateStaticParams() {
   return getAllProjects().map((p) => ({ slug: p.slug }));
 }
+
+const reportData: Record<string, { label: string; url: string; desc: string }[]> = {
+  "ecommerce-analysis": [
+    {
+      label: "Amazon Product Landscape — Market Intelligence Report 2026",
+      url: "/reports/amazon-analysis/",
+      desc: "基于 Amazon India 平台 2,928 条商品数据，覆盖 9 大品类，从价格、折扣、评分、评论量四维交叉分析，AI 驱动选品与定价策略洞察。",
+    },
+    {
+      label: "Amazon Books Market Intelligence Report 2026",
+      url: "/reports/amazon-books-analysis/",
+      desc: "基于 Amazon 500 本畅销书数据（1965-2026），覆盖 48 个子品类、56 家出版商，分析价格策略、读者偏好与出版格局，输出图书行业运营建议。",
+    },
+  ],
+};
 
 export default async function ProjectPage({ params }: Props) {
   const { slug } = await params;
@@ -130,6 +145,50 @@ export default async function ProjectPage({ params }: Props) {
               </a>
             </div>
           </SectionCard>
+        )}
+
+        {/* 6. Complete Reports */}
+        {reportData[slug] && reportData[slug].length > 0 && (
+          <SectionCard title="6. 完整分析报告">
+            <div className="space-y-3">
+              <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
+                点击下方链接查看 PPT 风格商业分析简报，包含完整的数据分析过程与运营建议
+              </p>
+              {reportData[slug].map((report, i) => (
+                <a
+                  key={i}
+                  href={report.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 p-4 rounded-lg border border-border bg-accent/30 hover:bg-accent/50 transition-colors group no-underline"
+                >
+                  <BarChart3Icon className="h-5 w-5 text-primary shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                  <div className="min-w-0">
+                    <p className="text-sm font-semibold text-primary group-hover:text-primary/80 transition-colors">
+                      {report.label}
+                    </p>
+                    <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
+                      {report.desc}
+                    </p>
+                  </div>
+                  <ExternalLinkIcon className="h-4 w-4 text-muted-foreground/40 shrink-0 mt-0.5 group-hover:text-primary transition-colors" />
+                </a>
+              ))}
+            </div>
+          </SectionCard>
+        )}
+
+        {/* No report fallback */}
+        {!reportData[slug] && (
+          <Card className="border-dashed border-border/60 mt-6 bg-accent/30">
+            <CardContent className="p-8 text-center">
+              <FileTextIcon className="h-8 w-8 text-muted-foreground/40 mx-auto mb-3" />
+              <p className="text-sm font-medium text-muted-foreground">完整分析报告即将上线</p>
+              <p className="text-xs text-muted-foreground/60 mt-1">
+                PPT 风格商业分析简报，包含完整的数据分析过程与运营建议
+              </p>
+            </CardContent>
+          </Card>
         )}
       </div>
     </div>

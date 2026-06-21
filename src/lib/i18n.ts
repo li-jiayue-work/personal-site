@@ -156,6 +156,13 @@ const dict = {
       location: "长沙",
       remote: "接受远程 & 线下",
     },
+    projectDetail: {
+      back: "返回项目列表",
+      reportsTitle: "完整分析报告",
+      reportsHint: "点击下方链接查看 PPT 风格商业分析简报，包含完整的数据分析过程与运营建议",
+      reportsComingTitle: "完整分析报告即将上线",
+      reportsComingHint: "PPT 风格商业分析简报，包含完整的数据分析过程与运营建议",
+    },
     footer: {
       builtWith: "使用",
     },
@@ -316,6 +323,13 @@ const dict = {
       backupNote: "mirror",
       location: "Changsha",
       remote: "Open to remote & on-site",
+    },
+    projectDetail: {
+      back: "Back to Projects",
+      reportsTitle: "Complete Analysis Reports",
+      reportsHint: "Click below to view PPT-style business analysis briefs with complete data analysis and operational recommendations",
+      reportsComingTitle: "Complete Analysis Reports Coming Soon",
+      reportsComingHint: "PPT-style business analysis briefs with full data analysis process and operational recommendations",
     },
     footer: {
       builtWith: "Built with",

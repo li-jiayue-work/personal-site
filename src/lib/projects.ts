@@ -16,6 +16,7 @@ export interface ProjectMeta {
   conclusion?: string;
   insights?: string[];
   charts?: string[];
+  reports?: { label: string; url: string }[];
   body: string;
 }
 
