@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeftIcon, ExternalLinkIcon, FileTextIcon, BarChart3Icon } from "lucide-react";
+import { ArrowLeftIcon, ExternalLinkIcon, BarChart3Icon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -147,48 +147,25 @@ export default async function ProjectPage({ params }: Props) {
           </SectionCard>
         )}
 
-        {/* 6. Complete Reports */}
+        {/* Complete Reports */}
         {reportData[slug] && reportData[slug].length > 0 && (
-          <SectionCard title="6. 完整分析报告">
-            <div className="space-y-3">
-              <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
-                点击下方链接查看 PPT 风格商业分析简报，包含完整的数据分析过程与运营建议
-              </p>
+          <SectionCard title="完整分析报告">
+            <div className="space-y-2">
               {reportData[slug].map((report, i) => (
                 <a
                   key={i}
                   href={report.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start gap-3 p-4 rounded-lg border border-border bg-accent/30 hover:bg-accent/50 transition-colors group no-underline"
+                  className="text-sm text-primary hover:underline inline-flex items-center gap-1"
                 >
-                  <BarChart3Icon className="h-5 w-5 text-primary shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                  <div className="min-w-0">
-                    <p className="text-sm font-semibold text-primary group-hover:text-primary/80 transition-colors">
-                      {report.label}
-                    </p>
-                    <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
-                      {report.desc}
-                    </p>
-                  </div>
-                  <ExternalLinkIcon className="h-4 w-4 text-muted-foreground/40 shrink-0 mt-0.5 group-hover:text-primary transition-colors" />
+                  <BarChart3Icon className="h-3.5 w-3.5" />
+                  {report.label}
+                  <ExternalLinkIcon className="h-3 w-3" />
                 </a>
               ))}
             </div>
           </SectionCard>
-        )}
-
-        {/* No report fallback */}
-        {!reportData[slug] && (
-          <Card className="border-dashed border-border/60 mt-6 bg-accent/30">
-            <CardContent className="p-8 text-center">
-              <FileTextIcon className="h-8 w-8 text-muted-foreground/40 mx-auto mb-3" />
-              <p className="text-sm font-medium text-muted-foreground">完整分析报告即将上线</p>
-              <p className="text-xs text-muted-foreground/60 mt-1">
-                PPT 风格商业分析简报，包含完整的数据分析过程与运营建议
-              </p>
-            </CardContent>
-          </Card>
         )}
       </div>
     </div>
