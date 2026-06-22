@@ -51,7 +51,7 @@ jobs:
           echo "🚀 Deployed to OSS successfully"
 
       - name: Deployment summary
-        run: |
+        run: | 
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
           echo "  ✅ Deployment completed"
           echo "  🌐 Bucket:  my-personal-site"
