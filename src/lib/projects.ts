@@ -65,6 +65,8 @@ function extractFrontmatter(raw: string): {
           .split(",")
           .map((s) => s.trim().replace(/"/g, ""));
       }
+      if (val === "true") val = true;
+      if (val === "false") val = false;
       meta[key.trim()] = val;
     }
   }
