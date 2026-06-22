@@ -2,10 +2,13 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { ArrowRightIcon, WrenchIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { useLang } from "@/components/language-provider";
 import type { ProjectMeta } from "@/lib/projects";
+
+const AI_TOOL_SLUGS = ["cursor-cc", "growth-workflow"];
 
 interface Props {
   projects: ProjectMeta[];
@@ -27,7 +30,8 @@ export function Projects({ projects }: Props) {
   }
 
   const featured = projects.filter((p) => p.featured);
-  const rest = projects.filter((p) => !p.featured);
+  const aiTools = projects.filter((p) => AI_TOOL_SLUGS.includes(p.slug));
+  const rest = projects.filter((p) => !p.featured && !AI_TOOL_SLUGS.includes(p.slug));
 
   return (
     <section id="projects" className="py-24 px-6">
@@ -53,6 +57,37 @@ export function Projects({ projects }: Props) {
             {featured.map((project, i) => (
               <ProjectCard key={project.slug} project={project} index={i} featured />
             ))}
+          </div>
+        )}
+
+        {aiTools.length > 0 && (
+          <div className="mb-12 max-w-2xl mx-auto">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="flex-1 h-px bg-border/60" />
+              <span className="text-xs text-muted-foreground/60 font-medium uppercase tracking-wider flex items-center gap-1.5">
+                <WrenchIcon className="h-3 w-3" /> 工具探索
+              </span>
+              <div className="flex-1 h-px bg-border/60" />
+            </div>
+            <div className="space-y-2">
+              {aiTools.map((project) => (
+                <Link
+                  key={project.slug}
+                  href={`/projects/${project.slug}`}
+                  className="flex items-center justify-between px-4 py-2.5 rounded-lg border border-border/30 bg-background/50 hover:bg-accent/5 hover:border-border/60 transition-colors group no-underline"
+                >
+                  <div className="min-w-0">
+                    <p className="text-sm font-medium text-foreground/70 group-hover:text-foreground transition-colors truncate">
+                      {project.title}
+                    </p>
+                    <p className="text-xs text-muted-foreground/60 truncate mt-0.5">
+                      {project.description}
+                    </p>
+                  </div>
+                  <ArrowRightIcon className="h-3.5 w-3.5 text-muted-foreground/30 group-hover:text-primary shrink-0 ml-3 transition-colors" />
+                </Link>
+              ))}
+            </div>
           </div>
         )}
 
