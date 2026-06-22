@@ -102,7 +102,7 @@ const dict = {
       groups: [
         {
           category: "数据分析",
-          skills: ["SQL（基础/学习中）", "Python", "Excel"],
+          skills: ["SQL", "Python（基础）", "Excel"],
         },
         {
           category: "AI 辅助分析",
@@ -270,7 +270,7 @@ const dict = {
       groups: [
         {
           category: "Data Analytics",
-          skills: ["SQL (Learning)", "Python", "Excel"],
+          skills: ["SQL", "Python (Basic)", "Excel"],
         },
         {
           category: "AI-Assisted Analysis",

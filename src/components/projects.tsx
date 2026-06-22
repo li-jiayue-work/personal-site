@@ -144,7 +144,7 @@ function ProjectCard({
                 <div className="sm:w-48 shrink-0 mt-4 sm:mt-0 sm:border-l sm:border-border sm:pl-6 sm:flex sm:items-center">
                   <div>
                     <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider mb-1">
-                      Core Insights
+                      {project.slug === "csdn-content" ? "Result" : "Core Insights"}
                     </p>
                     <p className="text-sm font-medium text-primary leading-relaxed">{project.result}</p>
                   </div>
@@ -171,7 +171,7 @@ function ProjectCard({
                 </div>
                 {project.result && (
                   <div className="pt-2 border-t border-border">
-                    <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider mb-1">Core Insights</p>
+                    <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider mb-1">{project.slug === "csdn-content" ? "Result" : "Core Insights"}</p>
                     <p className="text-sm font-medium text-primary leading-relaxed">{project.result}</p>
                   </div>
                 )}
