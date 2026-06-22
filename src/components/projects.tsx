@@ -32,6 +32,7 @@ export function Projects({ projects }: Props) {
   const featured = projects.filter((p) => p.featured);
   const aiTools = projects.filter((p) => AI_TOOL_SLUGS.includes(p.slug));
   const rest = projects.filter((p) => !p.featured && !AI_TOOL_SLUGS.includes(p.slug));
+  // ^ AI tools only in secondary section, not in grid below
 
   return (
     <section id="projects" className="py-24 px-6">
