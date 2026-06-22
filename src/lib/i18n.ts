@@ -18,8 +18,8 @@ const dict = {
     hero: {
       status: "求职中",
       name: "李佳悦",
-      tagline: "商业分析与 AI 工作流",
-      description: "专注于数据分析、AI 辅助工作流与增长策略。",
+      tagline: "数据分析 · 内容运营",
+      description: "使用 Claude Code 辅助，独立完成全流程数据分析项目与垂直内容博客运营。",
       viewProjects: "查看项目",
       contactMe: "联系我",
       resume: "简历",
@@ -102,7 +102,7 @@ const dict = {
       groups: [
         {
           category: "数据分析",
-          skills: ["SQL", "Python", "Excel"],
+          skills: ["SQL（基础/学习中）", "Python", "Excel"],
         },
         {
           category: "AI 辅助分析",
@@ -183,9 +183,9 @@ const dict = {
     hero: {
       status: "Open to opportunities",
       name: "Jiayue Li",
-      tagline: "Business Analytics & AI Workflow",
+      tagline: "Data Analytics · Content Operations",
       description:
-        "Focused on data analysis, AI-assisted workflows, and growth strategy.",
+        "Independently delivered full-cycle data analysis projects and a vertical content blog, assisted by Claude Code.",
       viewProjects: "View Projects",
       contactMe: "Contact Me",
       resume: "Resume",
@@ -270,7 +270,7 @@ const dict = {
       groups: [
         {
           category: "Data Analytics",
-          skills: ["SQL", "Python", "Excel"],
+          skills: ["SQL (Learning)", "Python", "Excel"],
         },
         {
           category: "AI-Assisted Analysis",
