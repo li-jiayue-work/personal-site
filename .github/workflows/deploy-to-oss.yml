@@ -23,7 +23,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build
+        run: npm run build -- --webpack
 
       - name: Verify build output
         run: |
@@ -46,6 +46,7 @@ jobs:
           aws configure set default.s3.multipart_threshold 10GB
           aws s3 sync out/ s3://my-personal-site/ \
             --delete \
+            --no-multipart-upload \
             --endpoint-url=https://oss-cn-hongkong.aliyuncs.com
           echo "🚀 Deployed to OSS successfully"
 
