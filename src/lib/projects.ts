@@ -58,7 +58,7 @@ function extractFrontmatter(raw: string): {
   for (const line of lines) {
     const [key, ...rest] = line.split(":");
     if (key && rest.length) {
-      let val: string | string[] = rest.join(":").trim();
+      let val: string | string[] | boolean = rest.join(":").trim();
       if (key === "tech" || key === "insights" || key === "charts") {
         val = val
           .replace(/[\[\]]/g, "")
