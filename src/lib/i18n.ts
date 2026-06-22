@@ -35,9 +35,9 @@ const dict = {
     },
     about: {
       badge: "关于",
-      title: "商业分析 + AI 复合背景",
+      title: "数据驱动运营增长",
       description:
-        "湖南工商大学工商管理本科，同时系统学习数据分析与 AI 工具链。关注如何用数据驱动商业决策，用 AI 提升分析效率。",
+        "关注用户、内容与商业增长之间的关系，尝试通过数据分析与AI工具发现问题、验证假设并支持运营决策。",
       highlights: [
         { label: "学校", value: "湖南工商大学" },
         { label: "专业", value: "工商管理 本科" },
@@ -201,9 +201,9 @@ const dict = {
     },
     about: {
       badge: "About",
-      title: "Business Analytics + AI Background",
+      title: "Data-Driven Growth Operations",
       description:
-        "BBA candidate at Hunan University of Technology and Business, with systematic self-training in data analysis and AI toolchains. Focused on data-driven business decisions and AI-augmented analysis efficiency.",
+        "Exploring the intersection of users, content, and business growth — leveraging data analysis and AI tools to identify problems, validate hypotheses, and support operational decisions.",
       highlights: [
         { label: "School", value: "HUTB" },
         { label: "Major", value: "Business Administration" },
