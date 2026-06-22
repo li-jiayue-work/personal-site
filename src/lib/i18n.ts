@@ -69,6 +69,7 @@ const dict = {
       title: "项目产出",
       description: "数据分析与 AI 工作流方向的实战项目，重结果、可复现。",
       featured: "精选",
+      coreInsights: "Core Insights",
       comingSoon: "项目即将上线，敬请期待。",
     },
     experience: {
@@ -236,6 +237,7 @@ const dict = {
       description:
         "Hands-on projects in data analysis and AI workflows — results-driven and reproducible.",
       featured: "Featured",
+      coreInsights: "Core Insights",
       comingSoon: "Projects coming soon. Check back later.",
     },
     experience: {
