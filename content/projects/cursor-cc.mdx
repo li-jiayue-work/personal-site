@@ -8,23 +8,37 @@ demo: ""
 featured: false
 ---
 
-## 项目概述
+## 工作区架构（9 目录结构）
 
-基于 Cursor IDE + Claude Code 搭建的个人 AI 协作开发工作区，从零设计标准化目录体系，集成 Agent 自动化工作流与 MCP 工具链，实现跨项目代码复用和方法论沉淀。
+- **src/** — 核心代码目录，按项目分子目录管理，统一的代码规范与类型标注
+- **tests/** — pytest 测试框架，所有核心模块有测试覆盖
+- **docs/** — 产品文档、领域知识、业务分析、插件说明等分类沉淀
+- **architecture/** — 前端、后端、数据库、API、Agent 系统等架构设计文档
+- **workflows/** — Feature / Review / Debug / Release 四套标准化流程定义
+- **memory/** — 技术决策（ADR）、经验学习、错误复盘、代码模式四维沉淀
+- **knowledge-base/** — 六层认知蒸馏体系（笔记→观察→模式→原则→框架→观点）
+- **.claude/** — Agents 角色定义、Skills 技能模块、Commands 自定义命令
+- **scratch/** — 实验性代码、一次性脚本、原型验证的隔离沙箱
 
-## 工作区架构
+## 活跃项目
 
-- **Agent 系统** — Planner / Reviewer / Debugger / Architect 四角色 Agent 协作
-- **MCP 工具链** — GitHub、DuckDuckGo、SQLite 等多源工具接入
-- **Workflow 引擎** — Feature / Review / Debug / Release 四套标准化流程
-- **知识库** — 六层认知蒸馏体系（笔记 → 观察 → 模式 → 原则 → 框架 → 观点）
-- **Skills 注册表** — 功能开发、Bug 修复、代码审查、API 设计、文档维护等可复用技能
+- **个人主页网站** — Next.js 16 + Tailwind CSS v4 + shadcn/ui，MDX 驱动内容管理，中英双语，暗色模式支持。展示 5 个项目作品，含完整数据分析报告与交互式可视化
+- **Amazon 数据分析项目** — 两个独立分析项目（产品 + 图书），Python + pandas + scikit-learn，覆盖 EDA、K-Means 聚类、随机森林回归，产出 25+ 张专业图表与 2 份 HTML 完整报告
 
-## 关键数据
+## Agent & Workflow 体系
 
-- 9 个标准化目录，覆盖项目全生命周期
-- 4 个 MCP 服务器，零全局安装
-- 累计支撑个人网站、数据分析等多个项目交付
+- **Planner Agent** — 需求分析 → 方案设计 → 任务拆解，输出结构化执行计划
+- **Reviewer Agent** — 代码审查 → 缺陷检测 → 重构建议，强制检查不跳过
+- **Debugger Agent** — 错误定位 → 根因分析 → 修复方案，系统性排错
+- **Architect Agent** — 技术选型 → 架构设计 → 接口定义，重大变更前的强制评审
+- **MCP 工具链** — GitHub / DuckDuckGo / SQLite 等多源工具接入，零全局安装
+
+## 开发原则
+
+- **最小修改原则** — 只改必须改的代码，拒绝顺手重构。每次修改前必须先阅读相关代码，输出分析结论
+- **Reviewer 强制** — 任何非 trivial 修改必须经过 Reviewer Agent 检查，不允许跳过检查步骤
+- **Memory 沉淀** — 每次任务完成后更新 memory/ 目录，把经验从临时记忆固化为永久知识
+- **工作流优先** — 遵循 workflows/ 中定义的标准流程，不即兴发挥。标准化比聪明更重要
 
 [GitHub →](https://github.com/li-jiayue-work/cursor-cc)
 [Gitee →](https://gitee.com/llljy1111)

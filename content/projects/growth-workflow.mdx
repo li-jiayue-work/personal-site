@@ -2,29 +2,35 @@
 title: "Claude Code AI 开发工作流"
 description: "探索并实践 Claude Code + Agent 协作开发范式，沉淀从需求分析到代码交付的标准化 AI 辅助工作流与方法论。"
 tech: ["Claude Code", "AI Agent", "Python", "Git", "自动化"]
-result: "从零建立 AI 协作开发工作流体系，沉淀 5 套标准流程，方法论可复制到不同业务场景"
+result: "从零建立 AI 协作开发工作流体系，沉淀 5 套标准流程与可复制方法论，支撑多个项目交付"
 github: "https://github.com/li-jiayue-work/cursor-cc"
 demo: ""
 featured: false
 ---
 
-## 项目概述
+## 项目背景
 
-不依赖任何现成模板，从零探索 Claude Code 与 Agent 的协作边界。通过反复实践，沉淀出一套可复用的 AI 辅助开发方法论——从需求理解、方案设计、代码实现到质量验证的完整闭环。
+在 AI 辅助开发工具快速迭代的 2025-2026 年，仅"会用 AI 写代码"已不足以构成差异化竞争力。本项目从零起步，不依赖现成模板，系统性地探索 Claude Code + Agent 的协作边界——从单一任务执行到多 Agent 编排，从临时脚本到标准化工作流，从小规模实验到可迁移的方法论体系。核心命题是：**如何将 AI 从工具升级为开发能力放大器，并让这套方法可复制、可验证。**
 
-## 工作流体系
+## 已形成的资产
 
-- **需求分析流** — 自然语言描述需求，AI 自动拆解为技术任务
-- **编码实现流** — Plan → Code → Review → Fix 四步循环
-- **质量保障流** — Reviewer Agent 自动审查 + 缺陷检测 + 修复建议
-- **知识沉淀流** — 每次任务完成后自动更新经验库，避免重复踩坑
-- **项目交付流** — Commit 规范、分支策略、PR 流程标准化
+- **CLAUDE.md（2 份）** — 工作区级 + 项目级双层级配置文件，定义技术栈、目录结构、代码规范、分支策略、禁止事项等自加载上下文。每次启动自动注入，无需手动解释项目背景
+- **Memory 体系** — 4 维度经验沉淀：decisions（技术决策 ADR）、learnings（正向知识积累）、mistakes（错误复盘）、patterns（可复用代码模式）。每次任务完成后自动更新，避免重复踩坑
+- **Skills 注册表** — 12 个可复用技能模块：feature-development、bug-fixing、refactor、api-design、code-review、data-visualization、pptx、note-slides、due-diligence 等。技能即标准流程，新人上手零培训
+- **Workflows** — 4 套标准化流程：Feature（新功能）、Review（代码审查）、Debug（缺陷修复）、Release（发布上线）。每套流程定义了 Agent 角色、检查步骤和输出格式
+- **Knowledge Base** — 六层认知蒸馏体系：原始笔记 → 观察 → 模式 → 原则 → 框架 → 观点。配套 5 阶段蒸馏工作流，把碎片化 AI 对话转化为结构化知识资产
 
-## 核心价值
+## 实操项目
 
-- 单次分析周期从 4 小时压缩至 20 分钟
-- 方法论可迁移至电商、内容、用户运营等不同业务场景
-- 验证了 AI 协作不是替代开发者，而是放大开发者的能力边界
+- **TODO CLI 工具** — 第一个练习项目，纯 Python 标准库（argparse + json），从零走通 Planner → Code → Reviewer 完整 Feature Workflow，验证 Agent 协作可行性
+- **个人主页网站（本网站）** — Next.js 16 + Tailwind CSS v4 + shadcn/ui，MDX 管理项目内容，中英双语，Claude Code 辅助全流程开发
+- **Amazon 数据分析项目** — 两个完整数据挖掘项目（产品 + 图书），覆盖 EDA、K-Means 聚类、随机森林回归，AI 辅助从代码到报告的端到端生成
+
+## 核心学习
+
+- **AI 协作的核心不是写代码，而是写上下文。** CLAUDE.md 和 Memory 体系的投入是 ROI 最高的——前期把项目背景、技术决策、代码规范写清楚，后续每次 AI 调用的质量提升是指数级的
+- **工作流 > 单次任务。** 把每次成功的协作模式固化为 Workflow 和 Skill，把每次失败沉淀为 Memory。从"靠运气遇到好结果"变成"靠流程保证结果质量"
+- **Agent 编排的价值在于分工和校验。** Planner 想方案、Reviewer 找问题、Debugger 定位根因——不同角色从不同角度审视同一任务，比单一 Agent 反复试错效率高得多
 
 [GitHub →](https://github.com/li-jiayue-work/cursor-cc)
 [Gitee →](https://gitee.com/llljy1111)
