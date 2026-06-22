@@ -26,10 +26,11 @@
   --radius: 14px;
   --radius-sm: 8px;
   --max-w: 880px;
-  --chart-height: 420px;
+  --chart-height: 500px;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+html { scroll-behavior: smooth; }
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
   background: var(--bg); color: var(--text); line-height: 1.65;
@@ -148,7 +149,7 @@ strong { color: var(--text); font-weight: 600; }
   margin-bottom: 16px;
 }
 .chart-grid-2 .chart-figure { margin-bottom: 0; }
-.chart-grid-2 .chart-figure .chart-img-wrap { height: 340px; }
+.chart-grid-2 .chart-figure .chart-img-wrap { height: 420px; }
 
 /* Combined caption for grids */
 .grid-caption {
@@ -228,10 +229,31 @@ strong { color: var(--text); font-weight: 600; }
 
 <div class="container">
 
+<!-- Back button -->
+<div style="padding:24px 0 0;">
+  <a href="javascript:history.back()" style="display:inline-flex;align-items:center;gap:6px;font-size:.85rem;color:var(--text-secondary);text-decoration:none;font-weight:500;">
+    ← 返回项目详情
+  </a>
+</div>
+
+<!-- TOC -->
+<nav class="toc-nav" style="background:var(--surface);border-radius:var(--radius);padding:28px 32px;box-shadow:var(--shadow);border:1px solid var(--border);margin:24px 0 0;">
+  <h3 style="font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:16px;">Contents</h3>
+  <ol style="list-style:none;padding:0;display:grid;gap:6px;">
+    <li><a href="#s1" class="toc-link">01 · Executive Summary</a></li>
+    <li><a href="#s2" style="color:var(--text-secondary);text-decoration:none;font-size:.9rem;display:block;padding:4px 0;transition:color .15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">02 · Project Background &amp; Data Overview</a></li>
+    <li><a href="#s3" style="color:var(--text-secondary);text-decoration:none;font-size:.9rem;display:block;padding:4px 0;transition:color .15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">03 · Pricing Strategy Analysis</a></li>
+    <li><a href="#s4" style="color:var(--text-secondary);text-decoration:none;font-size:.9rem;display:block;padding:4px 0;transition:color .15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">04 · Genre &amp; Publisher Landscape</a></li>
+    <li><a href="#s5" style="color:var(--text-secondary);text-decoration:none;font-size:.9rem;display:block;padding:4px 0;transition:color .15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">05 · User Feedback &amp; Market Dynamics</a></li>
+    <li><a href="#s6" style="color:var(--text-secondary);text-decoration:none;font-size:.9rem;display:block;padding:4px 0;transition:color .15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">06 · AI-Generated Strategic Insights</a></li>
+    <li><a href="#s7" style="color:var(--text-secondary);text-decoration:none;font-size:.9rem;display:block;padding:4px 0;transition:color .15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">07 · Conclusion &amp; Recommendations</a></li>
+  </ol>
+</nav>
+
 <!-- ═══════════════════════════════════════════════════════
      EXECUTIVE SUMMARY
      ═══════════════════════════════════════════════════════ -->
-<div class="section">
+<div class="section" id="s1">
   <div class="section-label">01</div>
   <h2>Executive Summary</h2>
   <p class="section-intro">500 本 Amazon 畅销书数据揭示的核心发现。</p>
@@ -261,7 +283,7 @@ strong { color: var(--text); font-weight: 600; }
 <!-- ═══════════════════════════════════════════════════════
      MODULE 1: DATA OVERVIEW
      ═══════════════════════════════════════════════════════ -->
-<div class="section">
+<div class="section" id="s2">
   <div class="section-label">02</div>
   <h2>Project Background</h2>
   <p class="section-intro">全球图书电商市场持续增长。Amazon Best Sellers 榜单是出版商、作者和营销人员洞察市场趋势的黄金数据源。本报告基于 Amazon 平台 500 本畅销书的结构化数据集（1965-2026），从价格策略、读者反馈、品类分布和出版格局四个维度展开深度分析。</p>
@@ -293,7 +315,7 @@ strong { color: var(--text); font-weight: 600; }
 <!-- ═══════════════════════════════════════════════════════
      MODULE 2: PRICING STRATEGY
      ═══════════════════════════════════════════════════════ -->
-<div class="section">
+<div class="section" id="s3">
   <div class="section-label">03</div>
   <h2>Pricing Strategy Analysis</h2>
   <p class="section-intro">图书均价 $16.83，中位数 $15.95。但价格差异的真正驱动力是什么？</p>
@@ -329,7 +351,7 @@ strong { color: var(--text); font-weight: 600; }
 <!-- ═══════════════════════════════════════════════════════
      MODULE 3: GENRE & PUBLISHER LANDSCAPE
      ═══════════════════════════════════════════════════════ -->
-<div class="section">
+<div class="section" id="s4">
   <div class="section-label">04</div>
   <h2>Genre &amp; Publisher Landscape</h2>
   <p class="section-intro">48 个子品类、56 家出版商——市场的供给端呈现怎样的竞争格局？</p>
@@ -365,7 +387,7 @@ strong { color: var(--text); font-weight: 600; }
 <!-- ═══════════════════════════════════════════════════════
      MODULE 4: TEMPORAL TRENDS & CORRELATION
      ═══════════════════════════════════════════════════════ -->
-<div class="section">
+<div class="section" id="s5">
   <div class="section-label">05</div>
   <h2>User Feedback &amp; Market Dynamics</h2>
   <p class="section-intro">评分、评论、BSR 排名与在榜时长——哪些指标真正反映了市场表现？</p>
@@ -401,7 +423,7 @@ strong { color: var(--text); font-weight: 600; }
 <!-- ═══════════════════════════════════════════════════════
      INSIGHTS
      ═══════════════════════════════════════════════════════ -->
-<div class="section">
+<div class="section" id="s6">
   <div class="section-label">06</div>
   <h2>AI-Generated Strategic Insights</h2>
   <p class="section-intro">基于数据模式识别，AI 自动生成以下运营策略建议。</p>
@@ -433,7 +455,7 @@ strong { color: var(--text); font-weight: 600; }
 <!-- ═══════════════════════════════════════════════════════
      CONCLUSION
      ═══════════════════════════════════════════════════════ -->
-<div class="section">
+<div class="section" id="s7">
   <div class="section-label">07</div>
   <h2>Conclusion &amp; Recommendations</h2>
   <p class="section-intro">综合以上分析，提炼五项可落地的运营优化建议。</p>
