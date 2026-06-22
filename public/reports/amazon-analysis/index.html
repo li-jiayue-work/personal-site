@@ -3,419 +3,254 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Amazon Product Landscape — 数据挖掘与市场情报报告 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<title>Amazon Product Landscape — 数据挖掘与市场分析完整报告 2026</title>
 <style>
 :root {
-  --bg: #f7f8fa; --card: #ffffff; --text: #1e293b; --text-secondary: #64748b;
-  --accent: #3b82f6; --accent-2: #8b5cf6; --amber: #f59e0b; --emerald: #10b981;
-  --rose: #f43f5e; --navy: #0f172a; --border: #e2e8f0;
-  --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
-  --shadow-lg: 0 10px 40px rgba(0,0,0,.08), 0 2px 8px rgba(0,0,0,.04);
-  --radius: 16px; --radius-sm: 10px; --max-w: 960px;
+  --bg: #f4f5f7; --surface: #ffffff; --text: #1a1a2e; --text-secondary: #5a5a7a;
+  --accent: #3b6df0; --accent-light: #eef2ff; --border: #e8e8ef;
+  --shadow: 0 1px 3px rgba(0,0,0,.04); --shadow-md: 0 4px 12px rgba(0,0,0,.06);
+  --radius: 12px; --max-w: 1060px; --chart-h: 400px;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 body {
-  font-family: 'Inter', 'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif;
-  background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.6; font-size: 15px;
+  -webkit-font-smoothing: antialiased;
 }
 .cover {
-  position: relative;
-  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 40%, #1a4a7a 70%, #0f172a 100%);
-  min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-  text-align: center; color: #fff; padding: 2rem; overflow: hidden;
+  background: linear-gradient(150deg, #0b1120 0%, #132244 45%, #1a3360 100%);
+  min-height: 70vh; display: flex; align-items: center; justify-content: center;
+  text-align: center; color: #fff; padding: 80px 32px; position: relative; overflow: hidden;
 }
-.cover::before {
-  content: ''; position: absolute; top: -50%; right: -50%; width: 100%; height: 100%;
-  background: radial-gradient(circle, rgba(59,130,246,.15) 0%, transparent 70%);
+.cover::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 30% 80%, rgba(59,109,240,.1), transparent),
+              radial-gradient(ellipse 50% 60% at 70% 20%, rgba(245,158,11,.06), transparent);
 }
-.cover > * { position: relative; z-index: 1; }
-.cover .badge {
-  display: inline-block; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
-  border-radius: 9999px; padding: .4rem 1.2rem; font-size: .8rem; letter-spacing: .08em;
-  text-transform: uppercase; margin-bottom: 2rem; backdrop-filter: blur(10px);
-}
-.cover h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; max-width: 800px; }
-.cover .subtitle { font-size: 1.1rem; color: rgba(255,255,255,.6); margin-top: 1.2rem; font-weight: 400; }
-.cover .meta { display: flex; gap: 1.5rem; margin-top: 2.5rem; font-size: .85rem; color: rgba(255,255,255,.45); flex-wrap: wrap; justify-content: center; }
-.cover .chevron { margin-top: 4rem; animation: bounce 2s infinite; opacity: .4; }
-@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
+.cover-content { position: relative; z-index: 1; max-width: 680px; }
+.cover-label { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.45); border: 1px solid rgba(255,255,255,.12); border-radius: 100px; padding: 5px 20px; margin-bottom: 32px; }
+.cover h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1.2; letter-spacing: -.02em; margin-bottom: 16px; }
+.cover h1 em { font-style: normal; background: linear-gradient(135deg, #7cb3ff, #f5a623); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.cover-desc { font-size: 1rem; color: rgba(255,255,255,.45); font-weight: 400; line-height: 1.7; max-width: 500px; margin: 0 auto; }
 
-.content { max-width: var(--max-w); margin: 0 auto; padding: 3rem 1.5rem; }
-.section { margin-bottom: 3.5rem; }
-.section-num {
-  font-size: .75rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: .3rem;
-}
-.section h2 { font-size: 1.55rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: .5rem; }
-.section > p { color: var(--text-secondary); max-width: 680px; font-size: .95rem; line-height: 1.75; }
+.top-bar { max-width: var(--max-w); margin: 0 auto; padding: 20px 24px 0; }
+.back-link { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--text-secondary); text-decoration: none; font-weight: 500; }
+.back-link:hover { color: var(--accent); }
+.toc { background: var(--surface); border-radius: var(--radius); padding: 24px 28px; box-shadow: var(--shadow); border: 1px solid var(--border); margin-top: 16px; }
+.toc h3 { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); margin-bottom: 12px; }
+.toc ol { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 4px 20px; }
+.toc a { color: var(--text-secondary); text-decoration: none; font-size: .85rem; padding: 3px 0; display: block; transition: color .15s; }
+.toc a:hover { color: var(--accent); }
 
-.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
-@media (max-width: 720px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
-.kpi-card {
-  background: var(--card); border-radius: var(--radius); padding: 1.4rem 1.5rem;
-  box-shadow: var(--shadow); border: 1px solid var(--border);
-}
-.kpi-card .label { font-size: .75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: .06em; font-weight: 500; }
-.kpi-card .value { font-size: 1.9rem; font-weight: 800; margin-top: .4rem; letter-spacing: -0.01em; }
-.kpi-card .delta { font-size: .82rem; margin-top: .25rem; }
-.delta.up { color: var(--emerald); } .delta.info { color: var(--accent); } .delta.warn { color: var(--amber); }
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+.section { padding: 56px 0; }
+.section-label { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+.section h2 { font-size: 1.55rem; font-weight: 700; letter-spacing: -.01em; margin-bottom: 6px; }
+.section-intro { color: var(--text-secondary); font-size: .92rem; max-width: 600px; }
 
-.chart-card {
-  background: var(--card); border-radius: var(--radius); padding: 1.5rem;
-  box-shadow: var(--shadow); border: 1px solid var(--border); margin-bottom: 1.5rem;
-}
-.chart-card img { width: 100%; border-radius: var(--radius-sm); display: block; }
-.chart-card h3 { font-size: 1.05rem; font-weight: 600; margin: 1.2rem 0 .4rem; letter-spacing: -0.01em; }
-.chart-card .insight { color: var(--text-secondary); font-size: .88rem; line-height: 1.7; }
+.chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 20px; }
+.chart-card { background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); overflow: hidden; display: flex; flex-direction: column; }
+.chart-card-header { padding: 14px 18px 0; font-size: .85rem; font-weight: 700; color: var(--text); }
+.chart-card-img { width: 100%; height: var(--chart-h); display: flex; align-items: center; justify-content: center; background: #fafbfc; padding: 10px 14px; }
+.chart-card-img img { width: 100%; height: 100%; object-fit: contain; }
+.chart-card-footer { padding: 10px 18px 14px; font-size: .8rem; color: var(--text-secondary); line-height: 1.55; border-top: 1px solid var(--border); }
+.chart-card-footer::before { content: 'Key Insight: '; font-weight: 700; color: var(--accent); }
 
-.insight-list { display: grid; gap: 1rem; }
-.insight-item {
-  background: var(--card); border-radius: var(--radius); padding: 1.3rem 1.5rem;
-  box-shadow: var(--shadow); border-left: 4px solid var(--accent);
-  display: flex; gap: .8rem; align-items: flex-start;
-}
-.insight-item .num {
-  width: 28px; height: 28px; border-radius: 50%; background: var(--accent);
-  color: #fff; font-size: .85rem; font-weight: 700; display: flex; align-items: center;
-  justify-content: center; flex-shrink: 0; margin-top: 2px;
-}
-.insight-item .insight-text { font-size: .92rem; line-height: 1.7; }
+.insight-list { display: grid; gap: 12px; margin-top: 20px; }
+.insight { background: var(--surface); border-radius: var(--radius); padding: 20px 24px; box-shadow: var(--shadow); border: 1px solid var(--border); border-left: 3px solid var(--accent); display: flex; gap: 14px; align-items: flex-start; }
+.insight-num { width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: #fff; font-size: .8rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.insight p { font-size: .88rem; color: var(--text-secondary); line-height: 1.65; }
+.insight p strong { color: var(--text); }
 
-.method-card {
-  background: var(--card); border-radius: var(--radius); padding: 1.5rem;
-  box-shadow: var(--shadow); border: 1px solid var(--border); margin-bottom: 1rem;
-}
-.method-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: .6rem; }
-.method-card p, .method-card li { color: var(--text-secondary); font-size: .9rem; line-height: 1.75; }
-.method-card ul { padding-left: 1.2rem; }
+.conclusion-wrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 20px; }
+.conclusion-item { background: var(--surface); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); border: 1px solid var(--border); }
+.conclusion-item h4 { font-size: .9rem; font-weight: 700; margin-bottom: 8px; }
+.conclusion-item p { font-size: .82rem; color: var(--text-secondary); line-height: 1.6; }
 
-.stat-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .88rem; }
-.stat-table th { background: #f1f5f9; padding: .7rem .9rem; text-align: left; font-weight: 600; font-size: .8rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: .04em; }
-.stat-table td { padding: .6rem .9rem; border-bottom: 1px solid var(--border); }
-.stat-table tr:hover td { background: #f8fafc; }
-
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-@media (max-width: 720px) { .two-col { grid-template-columns: 1fr; } }
-
-.highlight {
-  background: linear-gradient(135deg, #eff6ff, #f0f9ff);
-  border-left: 3px solid var(--accent); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  padding: 1rem 1.2rem; margin: 1rem 0; font-size: .88rem; color: #1e40af; line-height: 1.7;
-}
-
-.conclusion-card {
-  background: linear-gradient(135deg, #0f172a, #1e3a5f); color: #fff;
-  border-radius: var(--radius); padding: 2.5rem; box-shadow: var(--shadow-lg);
-}
-.conclusion-card h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; letter-spacing: -0.01em; }
-.conclusion-card ul { list-style: none; display: grid; gap: .8rem; }
-.conclusion-card ul li { display: flex; gap: .6rem; align-items: baseline; font-size: .95rem; line-height: 1.7; color: rgba(255,255,255,.85); }
-.conclusion-card ul li::before { content: '--'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
-
-.footer { text-align: center; padding: 3rem 1.5rem; color: var(--text-secondary); font-size: .8rem; }
-.footer a { color: var(--accent); text-decoration: none; }
-
-.tag { display: inline-block; font-size: .72rem; padding: .2rem .6rem; border-radius: 4px; margin-right: .3rem; font-weight: 500; }
-.tag.blue { background: #dbeafe; color: #1e40af; }
-.tag.green { background: #d1fae5; color: #065f46; }
-.tag.amber { background: #fef3c7; color: #92400e; }
-.tag.purple { background: #ede9fe; color: #6b21a8; }
+.footer { text-align: center; padding: 40px 24px; color: var(--text-secondary); font-size: .78rem; border-top: 1px solid var(--border); margin-top: 20px; }
+@media (max-width: 700px) { .chart-grid { grid-template-columns: 1fr; } .toc ol { grid-template-columns: 1fr 1fr; } }
 </style>
 </head>
 <body>
 
 <section class="cover">
-  <div class="badge">Data Mining &amp; Market Intelligence Report &middot; 2026</div>
-  <h1>Amazon Product Landscape<br>数据挖掘与电商市场情报</h1>
-  <p class="subtitle">融合探索性数据分析、K-Means 聚类与随机森林回归的全流程数据挖掘报告</p>
-  <div class="meta">
-    <span>Dataset: Amazon India (2,928 products)</span>
-    <span>Methods: EDA + K-Means + Random Forest</span>
-    <span>June 2026</span>
-  </div>
-  <div class="chevron">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+  <div class="cover-content">
+    <div class="cover-label">Data Mining &amp; Market Analysis · Complete Report · June 2026</div>
+    <h1>Amazon Product Landscape<br><em>数据挖掘与电商市场分析</em></h1>
+    <p class="cover-desc">基于 Amazon India 1,465 条真实产品数据，融合 EDA、K-Means 聚类与随机森林回归的全流程数据挖掘报告</p>
   </div>
 </section>
 
-<div class="content">
+<div class="top-bar">
+  <a href="javascript:history.back()" class="back-link">← 返回项目详情</a>
+  <nav class="toc">
+    <h3>Contents</h3>
+    <ol>
+      <li><a href="#s1">01 · 数据概览与品类结构</a></li>
+      <li><a href="#s2">02 · 价格与折扣分析</a></li>
+      <li><a href="#s3">03 · 评分与用户反馈</a></li>
+      <li><a href="#s4">04 · 相关性分析</a></li>
+      <li><a href="#s5">05 · K-Means 聚类</a></li>
+      <li><a href="#s6">06 · 随机森林回归</a></li>
+      <li><a href="#s7">07 · AI 洞察与建议</a></li>
+    </ol>
+  </nav>
+</div>
 
-<!-- 01 BACKGROUND -->
-<section class="section">
-  <div class="section-num">01</div>
-  <h2>Background &amp; Methodology</h2>
-  <p>
-    本报告基于 Amazon India 平台的 <strong>2,928 条真实商品数据</strong>，遵循 CRISP-DM（跨行业数据挖掘标准流程）框架，完整实施从数据理解、预处理、探索性分析到机器学习建模的全流程。覆盖 Electronics、Computers &amp; Accessories、Home &amp; Kitchen 等 9 大一级品类。
-  </p>
-  <p style="margin-top:0.6rem;">
-    核心研究问题：<strong>价格与折扣究竟在多大程度上影响用户满意度？</strong>通过皮尔逊相关性分析、K-Means 聚类（K=3）和随机森林回归三重验证，系统揭示电商定价策略与用户反馈之间的真实关系。
-  </p>
+<div class="container">
 
-  <div class="two-col" style="margin-top:1.5rem;">
-    <div class="method-card">
-      <h3>EDA 探索性数据分析</h3>
-      <p>通过直方图、散点图、箱线图、相关性热力图等 6 种可视化手段，全面探查数据分布特征、变量间关系及品类间差异，为建模提供方向指引。</p>
+<!-- 01 DATA OVERVIEW -->
+<div class="section" id="s1">
+  <div class="section-label">01</div>
+  <h2>数据概览与品类结构</h2>
+  <p class="section-intro">1,465 条 Amazon India 产品数据的基础分布——品类格局、评分形态、折扣特征。</p>
+  <div class="chart-grid">
+    <div class="chart-card">
+      <div class="chart-card-header">各类别商品数量分布 (Top 5)</div>
+      <div class="chart-card-img"><img src="/reports/amazon-analysis/charts/chart_01_category_dist.png" alt="品类分布"></div>
+      <div class="chart-card-footer">Electronics 35.9%、Computers &amp; Accessories 30.9%、Home &amp; Kitchen 30.5%——三品类三足鼎立，合计占 97.4%。</div>
     </div>
-    <div class="method-card">
-      <h3>机器学习建模</h3>
-      <p><strong>K-Means 聚类</strong>：以价格与折扣率为特征，通过 Elbow Method 确定 K=3，实现产品自动分群。<br>
-      <strong>随机森林回归</strong>：以价格、折扣率、品类、评论数为特征预测评分，量化各因素贡献度。</p>
+    <div class="chart-card">
+      <div class="chart-card-header">商品评分分布</div>
+      <div class="chart-card-img"><img src="/reports/amazon-analysis/charts/chart_02_rating_hist.png" alt="评分分布"></div>
+      <div class="chart-card-footer">均值 4.10，标准差 0.29。评分高度集中，低于 3.0 分产品不足 1%。存在明显的"评分通胀"现象。</div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-card-header">折扣率分布</div>
+      <div class="chart-card-img"><img src="/reports/amazon-analysis/charts/chart_03_discount_hist.png" alt="折扣分布"></div>
+      <div class="chart-card-footer">折扣率呈双峰分布——峰值在 40–50% 和 60–70%。均值 47.7%，反映平台差异化的折扣策略。</div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-card-header">各类别商品价格区间分布</div>
+      <div class="chart-card-img"><img src="/reports/amazon-analysis/charts/chart_11_price_buckets.png" alt="价格区间"></div>
+      <div class="chart-card-footer">Home &amp; Kitchen 高度集中在 ₹0-500 低价区间。Electronics 在 ₹1001-5000 区间分布最为均衡。</div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- 02 DATASET OVERVIEW -->
-<section class="section">
-  <div class="section-num">02</div>
-  <h2>Dataset Overview</h2>
-  <div class="kpi-grid">
-    <div class="kpi-card">
-      <div class="label">Total Products</div>
-      <div class="value">2,928</div>
-      <div class="delta info">9 一级品类 &middot; 29 二级 &middot; 71 品牌</div>
+<!-- 02 PRICE & DISCOUNT -->
+<div class="section" id="s2">
+  <div class="section-label">02</div>
+  <h2>价格与折扣分析</h2>
+  <p class="section-intro">价格分布、折扣策略与品类间的定价差异。</p>
+  <div class="chart-grid">
+    <div class="chart-card">
+      <div class="chart-card-header">原价 vs 折后价（对数轴）</div>
+      <div class="chart-card-img"><img src="/reports/amazon-analysis/charts/chart_04_price_scatter.png" alt="价格散点"></div>
+      <div class="chart-card-footer">大部分产品点落于 y=x 线下方，折扣普遍存在。Electronics（蓝色）价格跨度最大，最高达 ₹77,990。</div>
     </div>
-    <div class="kpi-card">
-      <div class="label">Avg Discounted Price</div>
-      <div class="value">₹3,126</div>
-      <div class="delta info">中位数 ₹799 &middot; 长尾高价</div>
-    </div>
-    <div class="kpi-card">
-      <div class="label">Avg Discount</div>
-      <div class="value">47.7%</div>
-      <div class="delta up">438 件商品折扣超过 70%</div>
-    </div>
-    <div class="kpi-card">
-      <div class="label">Avg Rating</div>
-      <div class="value">4.10</div>
-      <div class="delta info">标准差 0.29 &middot; 高度集中</div>
+    <div class="chart-card">
+      <div class="chart-card-header">各类别平均折扣率</div>
+      <div class="chart-card-img"><img src="/reports/amazon-analysis/charts/chart_05_avg_discount.png" alt="平均折扣"></div>
+      <div class="chart-card-footer">Home &amp; Kitchen 平均折扣最高（49.9%），Computers &amp; Accessories 最低（44.7%）。品类间差异约 5 个百分点。</div>
     </div>
   </div>
-  <p>
-    价格分布呈现<strong>长尾特征</strong>：中位数仅 ₹799，但均值高达 ₹3,126。折扣率呈双峰分布，峰值在 40–50% 和 60–70%，反映差异化折扣策略。评分高度集中（σ = 0.29），低于 3.0 分产品不足 1%，存在明显的"评分通胀"现象。
-  </p>
-</section>
+</div>
 
-<!-- 03 DATA PREPROCESSING -->
-<section class="section">
-  <div class="section-num">03</div>
-  <h2>Data Preprocessing</h2>
-  <table class="stat-table">
-    <tr><th>问题</th><th>字段</th><th>处理方法</th></tr>
-    <tr><td>货币符号混杂</td><td>discounted_price, actual_price</td><td>str.replace() 去除 ₹ 和千位逗号 → float()</td></tr>
-    <tr><td>百分号格式</td><td>discount_percentage</td><td>去除 % → 转为浮点数 (0–94)</td></tr>
-    <tr><td>千位分隔符</td><td>rating_count</td><td>去除逗号 → 转为整数</td></tr>
-    <tr><td>层级嵌套</td><td>category</td><td>str.split('|') 提取 main_cat / sub_cat</td></tr>
-    <tr><td>缺失值</td><td>rating (1 条)</td><td>pd.to_numeric(errors='coerce')</td></tr>
-    <tr><td>标签编码</td><td>main_cat</td><td>LabelEncoder → 数值编码</td></tr>
-    <tr><td>标准化</td><td>disc_price, disc_pct</td><td>StandardScaler (μ=0, σ=1)</td></tr>
-  </table>
-
-  <table class="stat-table" style="margin-top:1rem;">
-    <tr><th>字段</th><th>最小值</th><th>均值</th><th>中位数</th><th>最大值</th><th>标准差</th></tr>
-    <tr><td>折后价 (₹)</td><td>39</td><td>3,125</td><td>799</td><td>77,990</td><td>6,011</td></tr>
-    <tr><td>原价 (₹)</td><td>99</td><td>6,318</td><td>1,650</td><td>139,900</td><td>11,802</td></tr>
-    <tr><td>折扣率 (%)</td><td>0</td><td>47.7</td><td>50.0</td><td>94</td><td>21.6</td></tr>
-    <tr><td>评分</td><td>2.0</td><td>4.10</td><td>4.10</td><td>5.0</td><td>0.29</td></tr>
-    <tr><td>评论数</td><td>2</td><td>12,483</td><td>1,269</td><td>426,973</td><td>39,682</td></tr>
-  </table>
-
-  <div class="highlight">
-    <strong>关键经验：</strong>数据清洗不是简单的技术操作。货币符号、百分号、千位分隔符这些"格式噪音"在教科书示例中往往不存在，但在真实数据中普遍存在。封装 clean_price()、clean_pct()、clean_count() 三个专用清洗函数后，代码可复用可测试。"Garbage in, garbage out" 得到了充分印证。
+<!-- 03 RATING -->
+<div class="section" id="s3">
+  <div class="section-label">03</div>
+  <h2>评分与用户反馈</h2>
+  <p class="section-intro">折扣率与评分的关系——"高折扣=高评分"的假设是否成立？</p>
+  <div class="chart-grid">
+    <div class="chart-card">
+      <div class="chart-card-header">评分 vs 折扣率（含趋势线）</div>
+      <div class="chart-card-img"><img src="/reports/amazon-analysis/charts/chart_06_rating_vs_discount.png" alt="评分vs折扣"></div>
+      <div class="chart-card-footer">皮尔逊 r = −0.16，趋势线斜率几乎为零。折扣深度与用户评分之间不存在有意义的正向关系。</div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-card-header">各类别评分箱线图</div>
+      <div class="chart-card-img"><img src="/reports/amazon-analysis/charts/chart_07_rating_boxplot.png" alt="评分箱线图"></div>
+      <div class="chart-card-footer">Computers &amp; Accessories 评分中位数最高（4.2），且 IQR 最窄——产品品质最稳定。Home &amp; Kitchen 评分波动较大。</div>
+    </div>
   </div>
-</section>
-
-<!-- 04 EDA -->
-<section class="section">
-  <div class="section-num">04</div>
-  <h2>Exploratory Data Analysis</h2>
-  <p>6 张可视化图表，从品类结构、价格分布、折扣策略到相关性矩阵，全面揭示数据内在规律。</p>
-</section>
-
-<div class="chart-card">
-  <img src="/reports/amazon-analysis/charts/output_01_overview.png" alt="综合概览">
-  <h3>综合概览 — 品类结构、价格、折扣、评分全景</h3>
-  <p class="insight">
-    Electronics 以 35.9% 占据最大品类份额，三品类三足鼎立格局明显。价格分布高度右偏：绝大多数商品价格在 ₹5,000 以下，但存在少量超高单价商品（最高 ₹77,990）。折扣百分比接近正态分布，峰值在 40%–60%。
-  </p>
 </div>
 
-<div class="chart-card">
-  <img src="/reports/amazon-analysis/charts/output_02_price_rating.png" alt="价格·折扣·评分关系">
-  <h3>价格 vs 折扣 vs 评分 — 三维交叉关系</h3>
-  <p class="insight">
-    原价 vs 折扣价散点图中，大部分点贴近对角线（20%–60% 折扣区域）。评分颜色分布均匀，说明<strong>各价格段都有好货</strong>——高价不等于高评分，低价也不等于低评分。折扣深度与评分颜色无明显聚类，暗示两者的线性关联微弱。
-  </p>
-</div>
-
-<div class="chart-card">
-  <img src="/reports/amazon-analysis/charts/output_03_categories.png" alt="二级分类 Top 15">
-  <h3>二级分类 Top 15 — 品类集中度分析</h3>
-  <p class="insight">
-    Accessories &amp; Peripherals（762 SKU）和 Kitchen &amp; Home Appliances（614 SKU）合计占全平台 47%。这是<strong>供应链成熟、需求稳定的两大赛道</strong>，但也意味着选品同质化严重——需要在功能性差异或品牌溢价上找突破口。
-  </p>
-</div>
-
-<div class="chart-card">
-  <img src="/reports/amazon-analysis/charts/output_04_category_comparison.png" alt="分类对比">
-  <h3>品类对比 — 价格敏感度与评分差异</h3>
-  <p class="insight">
-    Home &amp; Kitchen 评分略高且方差较小——<strong>居家品类是评分稳定性最高的赛道</strong>。Computers &amp; Accessories 以最低平均折扣（44.7%）实现较高评分中位数（4.2），再次验证产品力优于价格战。
-  </p>
-</div>
-
-<div class="chart-card">
-  <img src="/reports/amazon-analysis/charts/output_05_brand_reviews.png" alt="品牌 & 评论分析">
-  <h3>品牌竞争与评论分布 — 长尾市场注意力分配</h3>
-  <p class="insight">
-    Cables &amp; Accessories 以 <strong>480 个 SKU</strong> 位居品牌数第一——配件长尾市场，竞争激烈。高评论量产品评分集中在 4.0–4.5，评论量高 ≠ 评分高。高流量产品反而可能因期望差评更多。
-  </p>
-</div>
-
-<div class="chart-card">
-  <img src="/reports/amazon-analysis/charts/output_06_correlation.png" alt="相关性热力图">
-  <h3>数值相关性 — 数据没有说谎</h3>
-  <p class="insight">
-    折后价与原价高度相关（r = 0.91），验证数据清洗准确性。原价与折扣率中度负相关（r = −0.40），高价品倾向维持低折扣以保护品牌调性。关键发现：<strong>折扣率与评分几乎零相关（r ≈ −0.16）</strong>——降价不会自动带来高评分，产品品质和品牌口碑才是核心竞争力。评分的主要影响因素在价格维度之外。
-  </p>
+<!-- 04 CORRELATION -->
+<div class="section" id="s4">
+  <div class="section-label">04</div>
+  <h2>相关性分析</h2>
+  <p class="section-intro">数值变量之间的真实统计关系。</p>
+  <div class="chart-grid">
+    <div class="chart-card" style="grid-column: 1 / -1; max-width: 640px; justify-self: center;">
+      <div class="chart-card-header">数值变量相关系数矩阵</div>
+      <div class="chart-card-img"><img src="/reports/amazon-analysis/charts/chart_08_correlation.png" alt="相关性"></div>
+      <div class="chart-card-footer">折后价与原价 r = 0.91（验证清洗准确性）。原价与折扣率 r = −0.40（高价品低折扣）。折扣率与评分 r ≈ −0.16——几乎无关。评分的影响因素在价格维度之外。</div>
+    </div>
+  </div>
 </div>
 
 <!-- 05 K-MEANS -->
-<section class="section">
-  <div class="section-num">05</div>
-  <h2>K-Means Clustering — 产品自动分群</h2>
-  <p>以折后价和折扣率为特征，Z-score 标准化后实施 K-Means 聚类。通过 Elbow Method 测试 K=2 至 K=8 的 SSE 下降曲线，确定最优 K=3。</p>
-</section>
-
-<div class="two-col">
-  <div class="method-card">
-    <h3>Elbow Method</h3>
-    <p>SSE（簇内误差平方和）在 K=3 处出现明显"肘部"，此后下降速率显著放缓。选择 K=3 在简洁性与拟合优度间取得最优平衡。</p>
-    <p style="margin-top:.5rem;font-size:.82rem;color:var(--text-secondary);">n_clusters=3, n_init=10, random_state=42</p>
+<div class="section" id="s5">
+  <div class="section-label">05</div>
+  <h2>K-Means 聚类 — 产品自动分群</h2>
+  <p class="section-intro">以折后价与折扣率为特征，Elbow Method 确定 K=3，将产品分为三类运营群。</p>
+  <div class="chart-grid">
+    <div class="chart-card">
+      <div class="chart-card-header">Elbow Method — 最优 K 值选择</div>
+      <div class="chart-card-img"><img src="/reports/amazon-analysis/charts/chart_09a_elbow.png" alt="Elbow"></div>
+      <div class="chart-card-footer">K=3 处 SSE 下降速率明显放缓（"肘部"），此后趋于平缓。选择 K=3 在简洁性与拟合度间取得最优。</div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-card-header">K-Means 聚类散点图 (K=3)</div>
+      <div class="chart-card-img"><img src="/reports/amazon-analysis/charts/chart_09b_clusters.png" alt="聚类"></div>
+      <div class="chart-card-footer">低价高折群（795 件，₹1,007，63.9%）、中价低折群（564 件，₹3,131，28.9%）、高价保利群（68 件，₹29,367，30.9%）。</div>
+    </div>
   </div>
-  <div class="method-card">
-    <h3>聚类结果 (N=1,427)</h3>
-    <table class="stat-table" style="margin:0;">
-      <tr><th>簇</th><th>数量</th><th>均价</th><th>折扣</th><th>定位</th></tr>
-      <tr><td>Cluster 1</td><td>795</td><td>₹1,007</td><td>63.9%</td><td>低价冲量型</td></tr>
-      <tr><td>Cluster 2</td><td>564</td><td>₹3,131</td><td>28.9%</td><td>中价低折型</td></tr>
-      <tr><td>Cluster 3</td><td>68</td><td>₹29,367</td><td>30.9%</td><td>高价保利型</td></tr>
-    </table>
-  </div>
-</div>
-
-<div class="highlight">
-  <strong>业务解读：</strong>三类产品群具有清晰的商业可解释性——<strong>Cluster 1</strong>（55.7%）低价冲量，以高折扣驱动销量，以家居日用品和低端 3C 配件为主；<strong>Cluster 2</strong>（39.5%）中价低折，以中端电子产品为主，品牌有一定议价能力；<strong>Cluster 3</strong>（4.8%）高价保利，以旗舰手机、专业设备等高端产品为主，折扣空间有限但品牌溢价显著。此分群可直接指导差异化定价与营销资源分配。
 </div>
 
 <!-- 06 RANDOM FOREST -->
-<section class="section" style="margin-top:2rem;">
-  <div class="section-num">06</div>
-  <h2>Random Forest Regression — 评分预测与因素归因</h2>
-  <p>构建随机森林回归模型，以价格、折扣率、品类编码、评论数为特征预测产品评分，量化各因素对用户满意度的贡献权重。</p>
-</section>
-
-<div class="two-col">
-  <div class="method-card">
-    <h3>模型配置</h3>
-    <ul>
-      <li><strong>特征 (5)</strong>：折后价、原价、折扣率、评论数、品类编码</li>
-      <li><strong>目标变量</strong>：用户评分</li>
-      <li><strong>划分</strong>：8:2 训练/测试 (1,139 / 285)</li>
-      <li><strong>参数</strong>：n_estimators=100, max_depth=6, random_state=42</li>
-    </ul>
-  </div>
-  <div class="method-card">
-    <h3>模型性能</h3>
-    <table class="stat-table" style="margin:0;">
-      <tr><th>指标</th><th>数值</th><th>解读</th></tr>
-      <tr><td>R²</td><td>0.082</td><td>解释约 8.2% 的评分方差</td></tr>
-      <tr><td>MAE</td><td>0.198</td><td>平均预测偏差约 0.2 分</td></tr>
-      <tr><td>RMSE</td><td>0.266</td><td>对大误差有一定惩罚</td></tr>
-    </table>
-  </div>
-</div>
-
-<div class="highlight">
-  <strong>核心洞察：R² = 0.082 是好消息还是坏消息？</strong>表面看是"差"模型，但在业务语境下，这恰恰是最重要的发现——<strong>可观测的价格类变量仅能解释评分方差的 8%，剩下 92% 由产品品质、品牌口碑、用户期望匹配度等不可观测因素决定。</strong>这正是"折扣 ≠ 好评"的定量证明。特征重要性分析显示折后价和原价重要性最高（约 35%），但绝对解释力仍然有限。与其在定价上内卷，不如投资产品力和品牌建设。
-</div>
-
-<!-- 07 AI INSIGHTS -->
-<section class="section" style="margin-top:2rem;">
-  <div class="section-num">07</div>
-  <h2>AI-Generated Business Insights</h2>
-  <p>基于数据挖掘全流程分析，AI 自动生成 6 条运营策略建议。</p>
-</section>
-
-<div class="insight-list">
-  <div class="insight-item">
-    <div class="num">1</div>
-    <div class="insight-text">
-      <strong>折扣不是万能药——停止"降价换好评"的幻想。</strong>皮尔逊 r = −0.16，随机森林 R² = 0.082，双重验证：折扣深度与用户评分之间不存在有意义的正向关系。运营重点应从"打价格战"转向"提升产品力与 listing 质量"。
+<div class="section" id="s6">
+  <div class="section-label">06</div>
+  <h2>随机森林回归 — 评分预测与因素归因</h2>
+  <p class="section-intro">以 5 个可观测特征预测评分，量化各因素贡献度。测试集 R² = 0.082。</p>
+  <div class="chart-grid">
+    <div class="chart-card">
+      <div class="chart-card-header">随机森林特征重要性</div>
+      <div class="chart-card-img"><img src="/reports/amazon-analysis/charts/chart_10a_feature_importance.png" alt="特征重要性"></div>
+      <div class="chart-card-footer">折后价与原价贡献度最高（~35%），但绝对解释力仍有限。品类编码贡献最小——品类本身不是评分驱动因素。</div>
     </div>
-  </div>
-  <div class="insight-item">
-    <div class="num">2</div>
-    <div class="insight-text">
-      <strong>产品分三类运营，拒绝一刀切。</strong>K-Means 聚类揭示三类产品群：低价冲量型（63.9% 折扣）、中价低折型（28.9% 折扣）、高价保利型（30.9% 折扣）。每类产品应制定独立的定价、促销与库存策略。
-    </div>
-  </div>
-  <div class="insight-item">
-    <div class="num">3</div>
-    <div class="insight-text">
-      <strong>Home &amp; Kitchen 是安全赛道，新品首发优选。</strong>该品类评分中位数最高且方差最小，消费者预期匹配度好。若追求稳定运营和复购率，居家品类优于 Electronics。
-    </div>
-  </div>
-  <div class="insight-item">
-    <div class="num">4</div>
-    <div class="insight-text">
-      <strong>Computers &amp; Accessories：产品力样本。</strong>该品类以全平台最低平均折扣（44.7%）实现了最高评分中位数（4.2），证明技术品质和用户期望匹配才是核心竞争力——消费者愿意为好产品付合理价格。
-    </div>
-  </div>
-  <div class="insight-item">
-    <div class="num">5</div>
-    <div class="insight-text">
-      <strong>中等折扣（30%–60%）是定价甜蜜点。</strong>大多数高评分商品折扣落在此区间。折扣太低没吸引力，折扣太高（>70%）易引发质量疑虑。建议新品折扣设为 45%–55%，测试转化率后微调。
-    </div>
-  </div>
-  <div class="insight-item">
-    <div class="num">6</div>
-    <div class="insight-text">
-      <strong>评分不只看均值，评论基数才是信任信号。</strong>评分 ≥ 4.5 的商品仅占 7.1% 且评论数偏低。选品时优先关注「评分 ≥ 4.3 且评论数 > 1,000」的商品，保证质量信号可信度同时验证市场需求。
+    <div class="chart-card">
+      <div class="chart-card-header">预测值 vs 真实值</div>
+      <div class="chart-card-img"><img src="/reports/amazon-analysis/charts/chart_10b_pred_vs_true.png" alt="预测vs真实"></div>
+      <div class="chart-card-footer">R² = 0.082, MAE = 0.198。模型仅能解释 8% 的评分方差——92% 由产品品质、品牌口碑等不可观测因素决定。</div>
     </div>
   </div>
 </div>
 
-<!-- 08 CONCLUSION -->
-<section class="section" style="margin-top:2rem;">
-  <div class="section-num">08</div>
-  <h2>Conclusion</h2>
-</section>
-
-<div class="conclusion-card">
-  <h2>最终运营优化建议</h2>
-  <ul>
-    <li><strong>定价策略</strong>：新品以 45%–55% 折扣入市，锚定 ₹500–₹2,000 价格带；高价品维持低折扣（≤30%）保护品牌调性——原价与折扣率 r = −0.40 说明这是市场共识。</li>
-    <li><strong>选品策略</strong>：优先切入 Home &amp; Kitchen 和 Kitchen &amp; Home Appliances 二级分类；避开 Cables &amp; Accessories 的 480 SKU 红海。</li>
-    <li><strong>分群运营</strong>：基于 K-Means 三类分群制定差异化策略——低价群冲量引流，中价群稳利润，高价群树品牌。营销预算、促销节奏、库存深度应完全不同。</li>
-    <li><strong>核心认知</strong>：价格能解释的评分方差不足 10%（R² = 0.082）。与其在折扣上内卷，不如投资产品品质、品牌建设和用户体验——这才是真正的护城河。</li>
-    <li><strong>数据信号优先级</strong>：评论数 > 1,000 > 评分 ≥ 4.3 > 价格中位数区间 > 品类集中度。评分因"通胀"而区分度不足，评论数更能反映真实市场热度。</li>
-  </ul>
+<!-- 07 INSIGHTS -->
+<div class="section" id="s7">
+  <div class="section-label">07</div>
+  <h2>AI 洞察与运营建议</h2>
+  <div class="insight-list">
+    <div class="insight">
+      <div class="insight-num">1</div>
+      <p><strong>折扣不是万能药。</strong>r = −0.16, R² = 0.082，双重验证：折扣深度与评分无关。运营重心从"打价格战"转向"提升产品力"。</p>
+    </div>
+    <div class="insight">
+      <div class="insight-num">2</div>
+      <p><strong>产品分三类运营。</strong>K-Means 揭示的低价冲量型、中价低折型、高价保利型——需差异化定价、促销与库存策略。</p>
+    </div>
+    <div class="insight">
+      <div class="insight-num">3</div>
+      <p><strong>Home &amp; Kitchen 是安全赛道。</strong>评分方差最小，新品首发优选。避开 Cables &amp; Accessories 的 480 SKU 红海。</p>
+    </div>
+    <div class="insight">
+      <div class="insight-num">4</div>
+      <p><strong>价格仅解释 8% 的评分。</strong>与其在折扣上内卷，不如投资产品品质和品牌建设——这才是真正的护城河。</p>
+    </div>
+    <div class="insight">
+      <div class="insight-num">5</div>
+      <p><strong>中等折扣（30%–60%）是定价甜蜜点。</strong>建议新品定价折扣设为 45%–55%，测试转化率后微调。</p>
+    </div>
+  </div>
 </div>
 
 </div>
 
 <footer class="footer">
-  <p>
-    <span class="tag blue">EDA</span>
-    <span class="tag green">K-Means Clustering</span>
-    <span class="tag amber">Random Forest</span>
-    <span class="tag purple">Python + scikit-learn</span>
-  </p>
-  <p style="margin-top:.8rem;">Generated by AI Analytics Pipeline &middot; Data: Amazon India (2,928 products) &middot; CRISP-DM Methodology &middot; June 2026</p>
-  <p style="margin-top:.4rem;font-size:.75rem;">课程论文原始分析基于 1,465 条记录 / 本报告可视化基于 2,928 条清洗后数据</p>
+  <p>Amazon Product Landscape · Data Mining Report · June 2026 · 13 Charts · CRISP-DM Methodology · Python + pandas + scikit-learn + matplotlib</p>
 </footer>
 
 </body>
