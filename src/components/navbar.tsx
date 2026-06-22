@@ -16,7 +16,6 @@ export function Navbar() {
     { href: "#hero", label: t.nav.index },
     { href: "#about", label: t.nav.about },
     { href: "#projects", label: t.nav.projects },
-    { href: "#experience", label: t.nav.experience },
     { href: "#skills", label: t.nav.skills },
     { href: "#contact", label: t.nav.contact },
   ];

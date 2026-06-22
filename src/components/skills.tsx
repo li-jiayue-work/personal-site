@@ -9,7 +9,7 @@ export function Skills() {
   const { t } = useLang();
 
   return (
-    <section id="skills" className="py-24 px-6">
+    <section id="skills" className="py-14 px-6">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

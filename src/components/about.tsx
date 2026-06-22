@@ -10,7 +10,7 @@ export function About() {
   const { t } = useLang();
 
   return (
-    <section id="about" className="py-24 px-6 bg-secondary/50">
+    <section id="about" className="py-14 px-6 bg-secondary/50">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -19,7 +19,7 @@ export function Projects({ projects }: Props) {
 
   if (projects.length === 0) {
     return (
-      <section id="projects" className="py-24 px-6">
+      <section id="projects" className="py-14 px-6">
         <div className="mx-auto max-w-6xl text-center">
           <Badge variant="secondary" className="mb-2">{t.projects.badge}</Badge>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">{t.projects.title}</h2>
@@ -34,7 +34,7 @@ export function Projects({ projects }: Props) {
   const rest = projects.filter((p) => !p.featured && !AI_TOOL_SLUGS.includes(p.slug));
 
   return (
-    <section id="projects" className="py-24 px-6">
+    <section id="projects" className="py-14 px-6">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
