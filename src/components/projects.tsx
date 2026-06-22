@@ -137,7 +137,7 @@ function ProjectCard({
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-1.5">
-                  {project.tech.map((t) => (
+                  {(project.tech||[]).map((t) => (
                     <Badge key={t} variant="secondary" className="text-xs font-normal">
                       {t}
                     </Badge>
@@ -169,7 +169,7 @@ function ProjectCard({
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex flex-wrap gap-1.5">
-                  {project.tech.map((t) => (
+                  {(project.tech||[]).map((t) => (
                     <Badge key={t} variant="secondary" className="text-xs font-normal">
                       {t}
                     </Badge>

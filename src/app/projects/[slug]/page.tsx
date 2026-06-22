@@ -55,7 +55,7 @@ export default async function ProjectPage({ params }: Props) {
               {project.description}
             </p>
             <div className="flex flex-wrap gap-1.5 mt-4">
-              {project.tech.map((t) => (
+              {(project.tech||[]).map((t) => (
                 <Badge key={t} variant="secondary" className="text-xs font-normal">{t}</Badge>
               ))}
             </div>
