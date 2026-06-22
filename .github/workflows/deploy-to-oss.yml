@@ -40,6 +40,8 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.ALIYUN_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.ALIYUN_ACCESS_KEY_SECRET }}
         run: |
+          # Force virtual-hosted-style — required by HK OSS, path-style gets SecondLevelDomainForbidden
+          aws configure set default.s3.addressing_style virtual
           aws s3 sync out/ s3://my-personal-site/ \
             --delete \
             --endpoint-url=https://oss-cn-hongkong.aliyuncs.com
