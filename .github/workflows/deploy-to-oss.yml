@@ -42,7 +42,7 @@ jobs:
 
       # ── 6. 安装并配置 ossutil ──────────────────
       - name: Setup ossutil
-        uses: manyuanrong/setup-ossutil@v3
+        uses: manyuanrong/setup-ossutil@v2
         with:
           endpoint: oss-cn-hongkong.aliyuncs.com
           access-key-id: ${{ secrets.ALIYUN_ACCESS_KEY_ID }}
