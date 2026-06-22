@@ -10,8 +10,13 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
+// Slugs that have their own standalone page.tsx
+const STANDALONE_SLUGS = ["amazon-books-analysis", "amazon-products"];
+
 export function generateStaticParams() {
-  return getAllProjects().map((p) => ({ slug: p.slug }));
+  return getAllProjects()
+    .map((p) => ({ slug: p.slug }))
+    .filter((p) => !STANDALONE_SLUGS.includes(p.slug));
 }
 
 const reportData: Record<string, { label: string; url: string }[]> = {
