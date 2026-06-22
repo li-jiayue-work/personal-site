@@ -27,13 +27,13 @@ const CHARTS = [
   {
     title: "价格与格式关系",
     key: "Audiobook 均价 $25.06 是 Kindle $8.65 的 2.9 倍。格式才是定价的核心变量，品类对价格解释力远弱于格式。",
-    images: ["output_02_price_rating", "output_04_format_category"],
+    images: ["c08_price_by_format", "c05_price_vs_rating"],
     layout: "2col" as const,
   },
   {
     title: "市场结构与竞争格局",
     key: "品类 CR5 仅 18.6%，出版商 CR3 仅 10%。市场高度碎片化，无寡头垄断——长尾品类是新进入者的蓝海。",
-    images: ["output_03_subgenres", "output_06_publisher_author"],
+    images: ["c07_subgenres", "c01_category_pie"],
     layout: "2col" as const,
   },
 ];

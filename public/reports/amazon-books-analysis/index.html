@@ -3,208 +3,113 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Amazon Books Market Intelligence — 数据驱动图书电商策略报告 2026</title>
+<title>Amazon Books Market Intelligence — 完整分析报告 2026</title>
 <style>
 /* ============================================================
-   Design System — McKinsey / Notion inspired
+   Design System
    ============================================================ */
 :root {
-  --bg: #f5f5f7;
-  --surface: #ffffff;
-  --text: #1d1d1f;
-  --text-secondary: #6e6e73;
-  --text-tertiary: #aeaeb2;
-  --accent: #0071e3;
-  --accent-light: #e8f1fb;
-  --success: #30b469;
-  --warning: #f5a623;
-  --danger: #e74c3c;
-  --border: #e5e5ea;
-  --shadow-sm: 0 1px 2px rgba(0,0,0,.04);
-  --shadow: 0 1px 3px rgba(0,0,0,.05), 0 1px 2px rgba(0,0,0,.04);
-  --shadow-md: 0 4px 12px rgba(0,0,0,.06), 0 1px 4px rgba(0,0,0,.04);
-  --radius: 14px;
-  --radius-sm: 8px;
-  --max-w: 880px;
-  --chart-height: 500px;
+  --bg: #f4f5f7; --surface: #ffffff; --text: #1a1a2e; --text-secondary: #5a5a7a;
+  --accent: #3b6df0; --accent-light: #eef2ff; --border: #e8e8ef;
+  --shadow: 0 1px 3px rgba(0,0,0,.04); --shadow-md: 0 4px 12px rgba(0,0,0,.06);
+  --radius: 12px; --max-w: 1060px; --chart-h: 400px;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 html { scroll-behavior: smooth; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
-  background: var(--bg); color: var(--text); line-height: 1.65;
-  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-  font-size: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.6; font-size: 15px;
+  -webkit-font-smoothing: antialiased;
 }
-
-/* ── Typography ─────────────────────────────────────────── */
-h2 { font-size: 1.6rem; font-weight: 700; letter-spacing: -.01em; color: var(--text); }
-h3 { font-size: 1.15rem; font-weight: 600; letter-spacing: -.005em; }
-p { color: var(--text-secondary); line-height: 1.75; }
-strong { color: var(--text); font-weight: 600; }
 
 /* ── Cover ──────────────────────────────────────────────── */
 .cover {
-  background: linear-gradient(155deg, #0a1628 0%, #132742 40%, #1a365d 70%, #0a1628 100%);
-  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(150deg, #0b1120 0%, #132244 45%, #1a3360 100%);
+  min-height: 70vh; display: flex; align-items: center; justify-content: center;
   text-align: center; color: #fff; padding: 80px 32px; position: relative; overflow: hidden;
 }
-.cover::before {
+.cover::after {
   content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse 60% 50% at 30% 70%, rgba(0,113,227,.1), transparent),
-              radial-gradient(ellipse 50% 60% at 70% 20%, rgba(139,92,246,.08), transparent);
+  background: radial-gradient(ellipse 60% 50% at 30% 80%, rgba(59,109,240,.1), transparent),
+              radial-gradient(ellipse 50% 60% at 70% 20%, rgba(139,92,246,.06), transparent);
 }
-.cover-content { position: relative; z-index: 1; max-width: 720px; }
+.cover-content { position: relative; z-index: 1; max-width: 680px; }
 .cover-label {
-  display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
-  color: rgba(255,255,255,.5); border: 1px solid rgba(255,255,255,.15); border-radius: 100px;
-  padding: 6px 22px; margin-bottom: 36px;
+  display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(255,255,255,.45); border: 1px solid rgba(255,255,255,.12); border-radius: 100px;
+  padding: 5px 20px; margin-bottom: 32px;
 }
-.cover h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.2; letter-spacing: -.025em; margin-bottom: 20px; }
-.cover h1 span { background: linear-gradient(135deg, #64b5f6, #9575cd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.cover-desc { font-size: 1.05rem; color: rgba(255,255,255,.5); font-weight: 400; margin-bottom: 52px; line-height: 1.7; }
-.cover-stats { display: flex; gap: 48px; justify-content: center; flex-wrap: wrap; }
-.cover-stat { text-align: center; }
-.cover-stat strong { display: block; font-size: 2rem; font-weight: 700; color: #fff; letter-spacing: -.01em; }
-.cover-stat span { font-size: .8rem; color: rgba(255,255,255,.4); text-transform: uppercase; letter-spacing: .06em; margin-top: 4px; display: block; }
+.cover h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1.2; letter-spacing: -.02em; margin-bottom: 16px; }
+.cover h1 em { font-style: normal; background: linear-gradient(135deg, #7cb3ff, #b39ddb); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.cover-desc { font-size: 1rem; color: rgba(255,255,255,.45); font-weight: 400; line-height: 1.7; max-width: 500px; margin: 0 auto; }
+
+/* ── Back + TOC ─────────────────────────────────────────── */
+.top-bar { max-width: var(--max-w); margin: 0 auto; padding: 20px 24px 0; }
+.back-link { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--text-secondary); text-decoration: none; font-weight: 500; }
+.back-link:hover { color: var(--accent); }
+.toc {
+  background: var(--surface); border-radius: var(--radius); padding: 24px 28px;
+  box-shadow: var(--shadow); border: 1px solid var(--border); margin-top: 16px;
+}
+.toc h3 { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); margin-bottom: 12px; }
+.toc ol { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 4px 20px; }
+.toc a { color: var(--text-secondary); text-decoration: none; font-size: .85rem; padding: 3px 0; display: block; transition: color .15s; }
+.toc a:hover { color: var(--accent); }
 
 /* ── Container ──────────────────────────────────────────── */
 .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
 
 /* ── Section ────────────────────────────────────────────── */
-.section { padding: 64px 0; }
-.section-label {
-  font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 6px;
-}
-.section-intro { color: var(--text-secondary); font-size: .95rem; margin-top: 6px; max-width: 640px; }
+.section { padding: 56px 0; }
+.section-label { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+.section h2 { font-size: 1.55rem; font-weight: 700; letter-spacing: -.01em; margin-bottom: 6px; }
+.section-intro { color: var(--text-secondary); font-size: .92rem; max-width: 600px; }
 
-/* ── KPI Row ────────────────────────────────────────────── */
-.kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 32px; }
-.kpi {
-  background: var(--surface); border-radius: var(--radius); padding: 24px;
-  box-shadow: var(--shadow); border: 1px solid var(--border); text-align: center;
+/* ── Chart Grid (2-column) ──────────────────────────────── */
+.chart-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 20px;
 }
-.kpi-val { font-size: 2rem; font-weight: 700; color: var(--text); letter-spacing: -.02em; line-height: 1; }
-.kpi-lbl { font-size: .75rem; color: var(--text-tertiary); margin-top: 6px; font-weight: 500; text-transform: uppercase; letter-spacing: .05em; }
-@media (max-width: 640px) { .kpi-row { grid-template-columns: repeat(2, 1fr); } }
-
-/* ── Executive Summary ──────────────────────────────────── */
-.exec-card {
-  background: var(--surface); border-radius: var(--radius); padding: 32px 36px;
-  box-shadow: var(--shadow-md); border: 1px solid var(--border); margin-bottom: 32px;
+.chart-card {
+  background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border);
+  box-shadow: var(--shadow); overflow: hidden; display: flex; flex-direction: column;
 }
-.exec-card h3 { margin-bottom: 20px; font-size: 1.05rem; color: var(--accent); text-transform: uppercase; letter-spacing: .06em; font-size: .78rem; }
-.exec-list { display: grid; gap: 14px; }
-.exec-item { display: flex; gap: 14px; align-items: flex-start; }
-.exec-num {
-  width: 30px; height: 30px; border-radius: 50%; background: var(--accent-light);
-  color: var(--accent); font-size: .8rem; font-weight: 700; display: flex;
-  align-items: center; justify-content: center; flex-shrink: 0;
+.chart-card-header {
+  padding: 14px 18px 0; font-size: .85rem; font-weight: 700; color: var(--text);
 }
-.exec-item p { font-size: .92rem; }
-
-/* ── Analysis Module ────────────────────────────────────── */
-.module { margin-bottom: 48px; }
-.module-header { margin-bottom: 20px; }
-.module-header .tag {
-  display: inline-block; font-size: .7rem; font-weight: 600; letter-spacing: .1em;
-  text-transform: uppercase; color: var(--accent); background: var(--accent-light);
-  padding: 4px 12px; border-radius: 100px; margin-bottom: 8px;
+.chart-card-img {
+  width: 100%; height: var(--chart-h); display: flex; align-items: center; justify-content: center;
+  background: #fafbfc; padding: 10px 14px;
 }
-.module-highlight {
-  background: var(--accent-light); border-left: 3px solid var(--accent);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 14px 18px;
-  margin-bottom: 20px; font-size: .9rem; color: #0059b3; font-weight: 500; line-height: 1.6;
+.chart-card-img img { width: 100%; height: 100%; object-fit: contain; }
+.chart-card-footer {
+  padding: 10px 18px 14px; font-size: .8rem; color: var(--text-secondary); line-height: 1.55;
+  border-top: 1px solid var(--border);
 }
-
-/* ── Chart Figure (uniform sizing) ──────────────────────── */
-.chart-figure {
-  background: var(--surface); border-radius: var(--radius); padding: 20px;
-  box-shadow: var(--shadow); border: 1px solid var(--border); margin-bottom: 16px;
-}
-.chart-figure .chart-img-wrap {
-  width: 100%; height: var(--chart-height); overflow: hidden;
-  display: flex; align-items: center; justify-content: center;
-  background: #fafafa; border-radius: var(--radius-sm);
-}
-.chart-figure img {
-  width: 100%; height: 100%; object-fit: contain; display: block;
-}
-.chart-figure .chart-title {
-  font-size: .82rem; font-weight: 600; color: var(--text); text-align: center;
-  margin-top: 14px; margin-bottom: 4px;
-}
-.chart-figure .chart-key {
-  font-size: .82rem; color: var(--text-secondary); text-align: center;
-  margin-top: 8px; padding-top: 10px; border-top: 1px solid var(--border);
-  font-weight: 500;
-}
-.chart-figure .chart-key::before { content: 'Key Insight：'; font-weight: 700; color: var(--accent); }
-
-/* ── 2-col chart grid ───────────────────────────────────── */
-.chart-grid-2 {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
-  margin-bottom: 16px;
-}
-.chart-grid-2 .chart-figure { margin-bottom: 0; }
-.chart-grid-2 .chart-figure .chart-img-wrap { height: 420px; }
-
-/* Combined caption for grids */
-.grid-caption {
-  background: var(--surface); border-radius: var(--radius); padding: 16px 20px;
-  box-shadow: var(--shadow); border: 1px solid var(--border); margin-bottom: 24px;
-}
-.grid-caption p { font-size: .88rem; }
-.grid-caption p::before { content: '综合分析：'; font-weight: 700; color: var(--text); }
+.chart-card-footer::before { content: 'Key Insight: '; font-weight: 700; color: var(--accent); }
 
 /* ── Insights ───────────────────────────────────────────── */
-.insight-list { display: grid; gap: 14px; }
+.insight-list { display: grid; gap: 12px; margin-top: 20px; }
 .insight {
-  background: var(--surface); border-radius: var(--radius); padding: 22px 26px;
-  box-shadow: var(--shadow); border: 1px solid var(--border);
-  border-left: 4px solid var(--accent); display: flex; gap: 14px; align-items: flex-start;
+  background: var(--surface); border-radius: var(--radius); padding: 20px 24px;
+  box-shadow: var(--shadow); border: 1px solid var(--border); border-left: 3px solid var(--accent);
+  display: flex; gap: 14px; align-items: flex-start;
 }
-.insight-num {
-  width: 32px; height: 32px; border-radius: 50%; background: var(--accent);
-  color: #fff; font-size: .85rem; font-weight: 700; display: flex;
-  align-items: center; justify-content: center; flex-shrink: 0;
-}
-.insight p { font-size: .9rem; }
+.insight-num { width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: #fff; font-size: .8rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.insight p { font-size: .88rem; color: var(--text-secondary); line-height: 1.65; }
+.insight p strong { color: var(--text); }
 
 /* ── Conclusion ─────────────────────────────────────────── */
-.conclusion {
-  background: linear-gradient(155deg, #0a1628, #1a365d); color: #fff; border-radius: var(--radius);
-  padding: 40px 44px; box-shadow: var(--shadow-md);
-}
-.conclusion h2 { color: #fff; margin-bottom: 24px; }
-.conclusion-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
-.conclusion-item {
-  background: rgba(255,255,255,.06); border-radius: var(--radius-sm); padding: 22px;
-  border: 1px solid rgba(255,255,255,.1);
-}
-.conclusion-item h4 { font-size: .95rem; font-weight: 700; margin-bottom: 8px; color: #fff; }
-.conclusion-item p { font-size: .84rem; color: rgba(255,255,255,.6); line-height: 1.65; }
+.conclusion-wrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 20px; }
+.conclusion-item { background: var(--surface); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); border: 1px solid var(--border); }
+.conclusion-item h4 { font-size: .9rem; font-weight: 700; margin-bottom: 8px; }
+.conclusion-item p { font-size: .82rem; color: var(--text-secondary); line-height: 1.6; }
 
 /* ── Footer ─────────────────────────────────────────────── */
-.footer {
-  text-align: center; padding: 48px 24px 32px; color: var(--text-tertiary); font-size: .78rem;
-}
-.footer .meta-tags { margin-bottom: 12px; }
-.footer .meta-tags span {
-  display: inline-block; font-size: .7rem; font-weight: 500; padding: 3px 10px;
-  border-radius: 100px; margin: 0 3px; letter-spacing: .04em;
-  background: var(--surface); color: var(--text-secondary); border: 1px solid var(--border);
-}
+.footer { text-align: center; padding: 40px 24px; color: var(--text-secondary); font-size: .78rem; border-top: 1px solid var(--border); margin-top: 20px; }
 
-@media (max-width: 768px) {
-  .chart-grid-2 { grid-template-columns: 1fr; }
-  .chart-grid-2 .chart-figure .chart-img-wrap { height: var(--chart-height); }
-  .chart-figure .chart-img-wrap { height: 300px; }
-  .section { padding: 40px 0; }
-  .exec-card { padding: 24px; }
-  .conclusion { padding: 28px; }
+@media (max-width: 700px) {
+  .chart-grid { grid-template-columns: 1fr; }
+  .toc ol { grid-template-columns: 1fr 1fr; }
 }
 </style>
 </head>
@@ -215,269 +120,206 @@ strong { color: var(--text); font-weight: 600; }
      ═══════════════════════════════════════════════════════ -->
 <section class="cover">
   <div class="cover-content">
-    <div class="cover-label">Market Intelligence Report · June 2026</div>
-    <h1>Amazon Books<br><span>Market Intelligence</span></h1>
-    <p class="cover-desc">基于 500 本 Amazon 畅销书真实数据的多维度市场分析报告<br>覆盖定价策略、读者行为、品类格局与出版竞争态势</p>
-    <div class="cover-stats">
-      <div class="cover-stat"><strong>500</strong><span>Books Analyzed</span></div>
-      <div class="cover-stat"><strong>48</strong><span>Sub-Genres</span></div>
-      <div class="cover-stat"><strong>56</strong><span>Publishers</span></div>
-      <div class="cover-stat"><strong>7</strong><span>Visualizations</span></div>
-    </div>
+    <div class="cover-label">Complete Analysis Report · June 2026</div>
+    <h1>Amazon Books<br><em>Market Intelligence</em></h1>
+    <p class="cover-desc">基于 500 本 Amazon 畅销书真实数据，12 张独立分析图表，覆盖定价、评分、品类、出版竞争全维度</p>
   </div>
 </section>
 
-<div class="container">
-
-<!-- Back button -->
-<div style="padding:24px 0 0;">
-  <a href="javascript:history.back()" style="display:inline-flex;align-items:center;gap:6px;font-size:.85rem;color:var(--text-secondary);text-decoration:none;font-weight:500;">
-    ← 返回项目详情
-  </a>
+<div class="top-bar">
+  <a href="javascript:history.back()" class="back-link">← 返回项目详情</a>
+  <nav class="toc">
+    <h3>Contents</h3>
+    <ol>
+      <li><a href="#s1">01 · 数据概览</a></li>
+      <li><a href="#s2">02 · 价格与评分</a></li>
+      <li><a href="#s3">03 · 品类与格式</a></li>
+      <li><a href="#s4">04 · 时间趋势</a></li>
+      <li><a href="#s5">05 · 相关性</a></li>
+      <li><a href="#s6">06 · AI 运营洞察</a></li>
+      <li><a href="#s7">07 · 结论与建议</a></li>
+    </ol>
+  </nav>
 </div>
 
-<!-- TOC -->
-<nav class="toc-nav" style="background:var(--surface);border-radius:var(--radius);padding:28px 32px;box-shadow:var(--shadow);border:1px solid var(--border);margin:24px 0 0;">
-  <h3 style="font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:16px;">Contents</h3>
-  <ol style="list-style:none;padding:0;display:grid;gap:6px;">
-    <li><a href="#s1" class="toc-link">01 · Executive Summary</a></li>
-    <li><a href="#s2" style="color:var(--text-secondary);text-decoration:none;font-size:.9rem;display:block;padding:4px 0;transition:color .15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">02 · Project Background &amp; Data Overview</a></li>
-    <li><a href="#s3" style="color:var(--text-secondary);text-decoration:none;font-size:.9rem;display:block;padding:4px 0;transition:color .15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">03 · Pricing Strategy Analysis</a></li>
-    <li><a href="#s4" style="color:var(--text-secondary);text-decoration:none;font-size:.9rem;display:block;padding:4px 0;transition:color .15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">04 · Genre &amp; Publisher Landscape</a></li>
-    <li><a href="#s5" style="color:var(--text-secondary);text-decoration:none;font-size:.9rem;display:block;padding:4px 0;transition:color .15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">05 · User Feedback &amp; Market Dynamics</a></li>
-    <li><a href="#s6" style="color:var(--text-secondary);text-decoration:none;font-size:.9rem;display:block;padding:4px 0;transition:color .15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">06 · AI-Generated Strategic Insights</a></li>
-    <li><a href="#s7" style="color:var(--text-secondary);text-decoration:none;font-size:.9rem;display:block;padding:4px 0;transition:color .15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">07 · Conclusion &amp; Recommendations</a></li>
-  </ol>
-</nav>
+<div class="container">
 
 <!-- ═══════════════════════════════════════════════════════
-     EXECUTIVE SUMMARY
+     01 · DATA OVERVIEW
      ═══════════════════════════════════════════════════════ -->
 <div class="section" id="s1">
   <div class="section-label">01</div>
-  <h2>Executive Summary</h2>
-  <p class="section-intro">500 本 Amazon 畅销书数据揭示的核心发现。</p>
+  <h2>数据概览</h2>
+  <p class="section-intro">500 本畅销书的基本结构：类别占比、格式分布、价格与评分形态。</p>
 
-  <div class="exec-card" style="margin-top:24px;">
-    <div class="exec-list">
-      <div class="exec-item">
-        <div class="exec-num">1</div>
-        <p><strong>格式是价格的唯一驱动力。</strong>Audiobook 均价 $25.06 为 Kindle $8.65 的 2.9 倍，格式间价格差异远大于品类间差异。出版商应将多格式分发作为核心定价杠杆。</p>
-      </div>
-      <div class="exec-item">
-        <div class="exec-num">2</div>
-        <p><strong>评分信号已失效。</strong>85%+ 图书评分集中在 4.0-4.8 区间，标准差仅 0.26。在"人人四星+"的环境下，评论数量而非星级才是区分畅销书的关键信号。</p>
-      </div>
-      <div class="exec-item">
-        <div class="exec-num">3</div>
-        <p><strong>市场高度碎片化。</strong>无单一品类市占超 5%，无单一出版商控制超 3.5% 份额。这是一个充分竞争的市场——长尾品类对新进入者仍有空间。</p>
-      </div>
-      <div class="exec-item">
-        <div class="exec-num">4</div>
-        <p><strong>出版窗口正在收窄。</strong>2023-2026 年出版量占全数据集的 47%，近四年新书超过此前 58 年总和。每本新书获得读者关注的时间窗口持续压缩。</p>
-      </div>
+  <div class="chart-grid">
+    <div class="chart-card">
+      <div class="chart-card-header">Fiction vs Non-Fiction 占比</div>
+      <div class="chart-card-img"><img src="/reports/amazon-books-analysis/charts/c01_category_pie.png" alt="类别占比"></div>
+      <div class="chart-card-footer">Fiction 50.8% vs Non-Fiction 49.2%，两类分布近乎均衡，数据无倾斜。</div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-card-header">书籍格式分布</div>
+      <div class="chart-card-img"><img src="/reports/amazon-books-analysis/charts/c02_format_bars.png" alt="格式分布"></div>
+      <div class="chart-card-footer">Paperback 以 39.8% 占据主流；Hardcover 31.2% 紧随其后。Kindle（14.4%）与 Audiobook（9.4%）合计近四分之一，数字阅读已是不可忽视的渠道。</div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-card-header">价格分布 (USD)</div>
+      <div class="chart-card-img"><img src="/reports/amazon-books-analysis/charts/c03_price_hist.png" alt="价格分布"></div>
+      <div class="chart-card-footer">均价 $16.83，中位数 $15.95，价格呈右偏分布。少数高价书（精装/有声书）拉高均值，但主流价格带集中在 $10–$25。</div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-card-header">评分分布 (1-5)</div>
+      <div class="chart-card-img"><img src="/reports/amazon-books-analysis/charts/c04_rating_hist.png" alt="评分分布"></div>
+      <div class="chart-card-footer">平均评分 4.41/5.0，85%+ 集中在 4.0-4.8，标准差仅 0.26。"评分通胀"使星级丧失区分度。</div>
     </div>
   </div>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════
-     MODULE 1: DATA OVERVIEW
+     02 · PRICE & RATING
      ═══════════════════════════════════════════════════════ -->
 <div class="section" id="s2">
   <div class="section-label">02</div>
-  <h2>Project Background</h2>
-  <p class="section-intro">全球图书电商市场持续增长。Amazon Best Sellers 榜单是出版商、作者和营销人员洞察市场趋势的黄金数据源。本报告基于 Amazon 平台 500 本畅销书的结构化数据集（1965-2026），从价格策略、读者反馈、品类分布和出版格局四个维度展开深度分析。</p>
+  <h2>价格与评分</h2>
+  <p class="section-intro">价格、评分、评论数三者的交叉关系——什么因素真正影响了图书的市场表现？</p>
 
-  <div class="kpi-row" style="margin-top:28px;">
-    <div class="kpi"><div class="kpi-val">$16.83</div><div class="kpi-lbl">平均价格</div></div>
-    <div class="kpi"><div class="kpi-val">4.41</div><div class="kpi-lbl">平均评分 / 5.0</div></div>
-    <div class="kpi"><div class="kpi-val">6.3M</div><div class="kpi-lbl">总评论数</div></div>
-    <div class="kpi"><div class="kpi-val">48</div><div class="kpi-lbl">子品类覆盖</div></div>
-  </div>
-
-  <div class="module">
-    <div class="module-header">
-      <div class="tag">Data Overview</div>
-      <h3>数据全景</h3>
-      <p style="margin-top:4px;font-size:.9rem;color:var(--text-secondary);">Fiction 50.8% vs Non-Fiction 49.2% · 71% 的图书集中在 2020-2026 年 · 覆盖 168 位作者</p>
+  <div class="chart-grid">
+    <div class="chart-card">
+      <div class="chart-card-header">价格 vs 评分（气泡大小=评论数）</div>
+      <div class="chart-card-img"><img src="/reports/amazon-books-analysis/charts/c05_price_vs_rating.png" alt="价格vs评分"></div>
+      <div class="chart-card-footer">价格与评分无显著线性关系——各价格带均有高分图书。高评论量（大气泡）的图书分布在各价格段，说明口碑效应与定价策略彼此独立。</div>
     </div>
-
-    <div class="chart-figure">
-      <div class="chart-img-wrap">
-        <img src="/reports/amazon-books-analysis/charts/output_01_overview.png" alt="数据全景概览">
-      </div>
-      <div class="chart-title">数据集全景概览</div>
-      <div class="chart-key">数据集在 Fiction 与 Non-Fiction 之间分布均衡（50.8% vs 49.2%），2020 年后出版量显著加速，价格与评分分布呈现典型电商平台特征。</div>
+    <div class="chart-card">
+      <div class="chart-card-header">评论数 vs 评分（对数刻度）</div>
+      <div class="chart-card-img"><img src="/reports/amazon-books-analysis/charts/c06_reviews_vs_rating.png" alt="评论vs评分"></div>
+      <div class="chart-card-footer">Fiction 与 Non-Fiction 在评论-评分空间中高度重叠。高评分图书的评论数分布极广——高分≠高评论量，反之亦然。</div>
     </div>
   </div>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════
-     MODULE 2: PRICING STRATEGY
+     03 · GENRE & FORMAT
      ═══════════════════════════════════════════════════════ -->
 <div class="section" id="s3">
   <div class="section-label">03</div>
-  <h2>Pricing Strategy Analysis</h2>
-  <p class="section-intro">图书均价 $16.83，中位数 $15.95。但价格差异的真正驱动力是什么？</p>
+  <h2>品类与格式</h2>
+  <p class="section-intro">格式决定价格与评论量，品类决定评分预期——供给端的结构性差异。</p>
 
-  <div class="module">
-    <div class="module-highlight">
-      格式（Format）是定价的第一驱动力——Audiobook 均价 $25.06 是 Kindle $8.65 的 2.9 倍，格式组合策略是出版商最核心的定价杠杆。Fiction 均价 $16.52 vs Non-Fiction $17.14，差异仅 3.8%，品类对定价的解释力远弱于格式。
+  <div class="chart-grid">
+    <div class="chart-card">
+      <div class="chart-card-header">Top 15 子品类</div>
+      <div class="chart-card-img"><img src="/reports/amazon-books-analysis/charts/c07_subgenres.png" alt="子品类"></div>
+      <div class="chart-card-footer">Sci-Fi（21本）、Middle Grade（18本）、Self-Help（18本）位居前三，但品类CR5仅18.6%。市场高度碎片化——长尾品类竞争压力小，是新进入者的蓝海。</div>
     </div>
-
-    <div class="chart-grid-2">
-      <div class="chart-figure">
-        <div class="chart-img-wrap">
-          <img src="/reports/amazon-books-analysis/charts/output_02_price_rating.png" alt="价格与评分关系">
-        </div>
-        <div class="chart-title">价格与评分关系</div>
-        <div class="chart-key">各价格带均有高分图书，价格与评分无显著线性关系。消费者对价格的接受度取决于内容质量而非绝对价格水平。</div>
-      </div>
-      <div class="chart-figure">
-        <div class="chart-img-wrap">
-          <img src="/reports/amazon-books-analysis/charts/output_04_format_category.png" alt="格式与分类对比">
-        </div>
-        <div class="chart-title">格式与品类交叉分析</div>
-        <div class="chart-key">Paperback 以 39.8% 份额占据主流，Kindle（14.4%）和 Audiobook（9.4%）合计近四分之一，数字阅读趋势持续增长。</div>
-      </div>
+    <div class="chart-card">
+      <div class="chart-card-header">不同格式的价格分布</div>
+      <div class="chart-card-img"><img src="/reports/amazon-books-analysis/charts/c08_price_by_format.png" alt="格式价格"></div>
+      <div class="chart-card-footer">Audiobook 均价 $25.06 是 Kindle $8.65 的 2.9 倍。格式是定价的第一驱动力，远强于品类。出版商应将多格式分发作为核心定价策略。</div>
     </div>
-
-    <div class="grid-caption">
-      <p>价格策略的核心启示：同一内容以多格式分发（Kindle 引流 + Paperback 走量 + Audiobook 溢价），可覆盖 $8-$25 全价格带。Kindle 边际成本近乎为零，是最大化读者基数的利器；Audiobook 享受最高溢价，反映场景化消费的支付意愿。</p>
+    <div class="chart-card">
+      <div class="chart-card-header">不同格式的评论数分布</div>
+      <div class="chart-card-img"><img src="/reports/amazon-books-analysis/charts/c09_reviews_by_format.png" alt="格式评论"></div>
+      <div class="chart-card-footer">Paperback 因销量基数大，评论量中位数最高。Audiobook 虽然价格最高，评论量中位数反而较低——高价≠高参与度。</div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-card-header">Fiction vs Non-Fiction 评分</div>
+      <div class="chart-card-img"><img src="/reports/amazon-books-analysis/charts/c10_rating_by_category.png" alt="类别评分"></div>
+      <div class="chart-card-footer">Fiction 平均评分 4.44 略高于 Non-Fiction 4.39。Non-Fiction 读者期望值更高而评判标准更严——出版商应注意内容厚度与价格的匹配。</div>
     </div>
   </div>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════
-     MODULE 3: GENRE & PUBLISHER LANDSCAPE
+     04 · TEMPORAL TRENDS
      ═══════════════════════════════════════════════════════ -->
 <div class="section" id="s4">
   <div class="section-label">04</div>
-  <h2>Genre &amp; Publisher Landscape</h2>
-  <p class="section-intro">48 个子品类、56 家出版商——市场的供给端呈现怎样的竞争格局？</p>
+  <h2>时间趋势</h2>
+  <p class="section-intro">出版年份如何影响供给量、定价水平与市场排名？</p>
 
-  <div class="module">
-    <div class="module-highlight">
-      品类集中度 CR5 仅 18.6%，出版商 CR3 仅 10%。无寡头垄断，这是一个充分竞争的买方市场。Sci-Fi（21 本）、Middle Grade（18 本）、Self-Help（18 本）位居前列，但无一占据支配地位。
-    </div>
-
-    <div class="chart-grid-2">
-      <div class="chart-figure">
-        <div class="chart-img-wrap">
-          <img src="/reports/amazon-books-analysis/charts/output_03_subgenres.png" alt="子类别分布">
-        </div>
-        <div class="chart-title">子品类分布 Top 15</div>
-        <div class="chart-key">Sci-Fi 以 21 本（4.2%）领先，品类高度分散。长尾品类（Cooking、Art 等）竞争强度低，是新进入者的蓝海机会。</div>
-      </div>
-      <div class="chart-figure">
-        <div class="chart-img-wrap">
-          <img src="/reports/amazon-books-analysis/charts/output_06_publisher_author.png" alt="出版商与作者">
-        </div>
-        <div class="chart-title">出版商与作者格局</div>
-        <div class="chart-key">Convergent Books、Scholastic Press、Tor Books、Bloomsbury 并列第一梯队，各占约 3.4%。无垄断者，新出版商仍有空间。</div>
-      </div>
-    </div>
-
-    <div class="grid-caption">
-      <p>市场启示：头部品类竞争激烈但规模可观，适合资源充足的出版商正面竞争；长尾品类（排名 20-48 的子品类）虽然单品销量低，但竞争压力小、利润率可能更高，适合中小型出版商差异化定位。</p>
+  <div class="chart-grid">
+    <div class="chart-card" style="grid-column: 1 / -1;">
+      <div class="chart-card-header">年出版量趋势 (2000–2026)</div>
+      <div class="chart-card-img"><img src="/reports/amazon-books-analysis/charts/c11_year_trend.png" alt="年份趋势"></div>
+      <div class="chart-card-footer">2023-2026 年出版量占全数据集 47%，近四年新书超过此前 58 年总和。供给快速膨胀，每本新书获得关注的时间窗口持续收窄。</div>
     </div>
   </div>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════
-     MODULE 4: TEMPORAL TRENDS & CORRELATION
+     05 · CORRELATION
      ═══════════════════════════════════════════════════════ -->
 <div class="section" id="s5">
   <div class="section-label">05</div>
-  <h2>User Feedback &amp; Market Dynamics</h2>
-  <p class="section-intro">评分、评论、BSR 排名与在榜时长——哪些指标真正反映了市场表现？</p>
+  <h2>变量相关性</h2>
+  <p class="section-intro">哪些字段之间存在真正的统计关联？数据不会说谎。</p>
 
-  <div class="module">
-    <div class="module-highlight">
-      平均评分 4.41 / 5.0，但 85%+ 集中在 4.0-4.8 区间，标准差仅 0.26。评分"通胀"使星级丧失区分度——评论数量（中位数 3,893）成为区分畅销书与普通书的核心信号。仅 8.2% 的图书在榜超 50 周，头部效应显著。
-    </div>
-
-    <div class="chart-grid-2">
-      <div class="chart-figure">
-        <div class="chart-img-wrap">
-          <img src="/reports/amazon-books-analysis/charts/output_05_year_bsr.png" alt="年份趋势与BSR分析">
-        </div>
-        <div class="chart-title">出版年份趋势与 BSR 分析</div>
-        <div class="chart-key">2023-2026 年出版量占 47%，供给快速膨胀。BSR 与在榜周数无强相关（r ≈ −0.1），短期冲榜不等于长期持续销售。</div>
-      </div>
-      <div class="chart-figure">
-        <div class="chart-img-wrap">
-          <img src="/reports/amazon-books-analysis/charts/output_07_correlation.png" alt="相关性热力图">
-        </div>
-        <div class="chart-title">变量相关性矩阵</div>
-        <div class="chart-key">价格、评分、评论量之间均为弱相关或无关——没有单一变量能解释图书成功。图书市场是多维因素共同作用的结果。</div>
-      </div>
-    </div>
-
-    <div class="grid-caption">
-      <p>"长青书"策略优于"冲榜"策略：仅 8.2% 图书在榜超 50 周，头部 1% 图书贡献不成比例的评论声量。与其追求首周排名，不如投资内容质量与长尾营销——一本长青书的终身价值远超十本快餐书。出版商应将"评论数增长"而非"评分维持"作为核心运营 KPI。</p>
+  <div class="chart-grid">
+    <div class="chart-card" style="grid-column: 1 / -1; max-width: 640px; justify-self: center;">
+      <div class="chart-card-header">数值字段相关性热力图</div>
+      <div class="chart-card-img"><img src="/reports/amazon-books-analysis/charts/c12_correlation.png" alt="相关性"></div>
+      <div class="chart-card-footer">价格、评分、评论数三者之间均为弱相关或无相关。没有单一变量能解释图书成功——图书市场是多维因素共同作用的结果。Rank 与 Reviews 呈负相关（r = −0.29），评论越多排名越靠前。</div>
     </div>
   </div>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════
-     INSIGHTS
+     06 · AI INSIGHTS
      ═══════════════════════════════════════════════════════ -->
 <div class="section" id="s6">
   <div class="section-label">06</div>
-  <h2>AI-Generated Strategic Insights</h2>
-  <p class="section-intro">基于数据模式识别，AI 自动生成以下运营策略建议。</p>
+  <h2>AI 运营洞察</h2>
+  <p class="section-intro">基于以上 12 张图表的数据模式识别，AI 自动生成以下策略建议。</p>
 
-  <div class="insight-list" style="margin-top:24px;">
+  <div class="insight-list">
     <div class="insight">
       <div class="insight-num">1</div>
-      <p><strong>多格式分发是定价核心杠杆。</strong>同时推出 Kindle（$8.65 低价引流）、Paperback（$13.53 主流走量）和 Audiobook（$25.06 高溢价利润），以格式组合覆盖全价格带消费者。</p>
+      <p><strong>多格式分发是定价核心杠杆。</strong>Audiobook $25.06 vs Kindle $8.65，同一内容以格式组合覆盖全价格带消费者。Kindle 边际成本趋近于零，是最大化读者基数的利器。</p>
     </div>
     <div class="insight">
       <div class="insight-num">2</div>
-      <p><strong>评论激励计划优于评分维护。</strong>在"人人四星+"环境下，50 条真实评论的信任信号远强于 4.5 星但评论寥寥。建议新书发布 30 天内集中获取早期评论，利用社会证明撬动算法推荐。</p>
+      <p><strong>评论激励计划优于评分维护。</strong>在"人人四星+"的环境下，50 条真实评论的信任信号远强于 4.5 星但评论寥寥。新书发布 30 天内集中获取早期评论。</p>
     </div>
     <div class="insight">
       <div class="insight-num">3</div>
-      <p><strong>长尾品类是蓝海入口。</strong>避开 Sci-Fi 和 Romantasy 红海，优先评估 Cooking、Art、Activity 等竞争密度低的品类。中小出版商以差异化选题建立品类优势。</p>
+      <p><strong>长尾品类是蓝海入口。</strong>品类 CR5 仅 18.6%，避开 Sci-Fi 和 Romantasy 红海，优先评估低竞争密度的长尾品类。</p>
     </div>
     <div class="insight">
       <div class="insight-num">4</div>
-      <p><strong>Non-Fiction 需注意内容厚度与价格的匹配。</strong>Non-Fiction 均价更高（$17.14 vs $16.52）但评分更低（4.39 vs 4.44），读者对非虚构类期望值更高，定价过高易引发负面口碑。</p>
+      <p><strong>Non-Fiction 需注意内容厚度与价格匹配。</strong>Non-Fiction 均价更高（$17.14 vs $16.52）但评分更低（4.39 vs 4.44），读者期望值差异导致价值感知裂缝。</p>
     </div>
     <div class="insight">
       <div class="insight-num">5</div>
-      <p><strong>从"报告"升级为"实时决策系统"。</strong>下一步建议构建动态数据管道，持续追踪 Amazon Best Sellers 每日变化，实现竞品定价监控、新书趋势预警和品类机会实时发现。</p>
+      <p><strong>从静态报告升级为实时监控系统。</strong>下一步建议构建动态数据管道，持续追踪 Amazon Best Sellers 每日变化，实现竞品定价监控与品类机会实时发现。</p>
     </div>
   </div>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════
-     CONCLUSION
+     07 · CONCLUSION
      ═══════════════════════════════════════════════════════ -->
 <div class="section" id="s7">
   <div class="section-label">07</div>
-  <h2>Conclusion &amp; Recommendations</h2>
-  <p class="section-intro">综合以上分析，提炼五项可落地的运营优化建议。</p>
+  <h2>结论与建议</h2>
+  <p class="section-intro">综合全部分析，提炼五项可落地的运营优化建议。</p>
 
-  <div class="conclusion" style="margin-top:24px;">
-    <div class="conclusion-grid">
-      <div class="conclusion-item">
-        <h4>多格式分发策略</h4>
-        <p>Kindle（引流）+ Paperback（走量）+ Audiobook（溢价），覆盖 $8-$25 全价格带。Kindle 边际成本趋近于零，是最大化读者基数的利器。</p>
-      </div>
-      <div class="conclusion-item">
-        <h4>评论激励计划</h4>
-        <p>评分不再是差异化武器。新书发布 30 天内集中获取 50+ 真实评论，利用社会证明效应撬动算法推荐流量。</p>
-      </div>
-      <div class="conclusion-item">
-        <h4>长尾蓝海切入</h4>
-        <p>避开 Sci-Fi、Romantasy 等红海品类。优先评估 Cooking、Art、Activity 等低竞争品类，以差异化选题建立品类优势。</p>
-      </div>
-      <div class="conclusion-item">
-        <h4>长青书运营</h4>
-        <p>8.2% 的图书在榜超 50 周。投资内容质量与长尾营销，一本长青书的终身价值远超十本快餐书。</p>
-      </div>
+  <div class="conclusion-wrap">
+    <div class="conclusion-item">
+      <h4>多格式分发</h4>
+      <p>Kindle 引流 + Paperback 走量 + Audiobook 溢价，以格式组合覆盖 $8–$25 全价格带。</p>
+    </div>
+    <div class="conclusion-item">
+      <h4>评论激励</h4>
+      <p>评分不再是差异化武器。新书发布 30 天集中获取 50+ 评论，社会证明撬动算法推荐。</p>
+    </div>
+    <div class="conclusion-item">
+      <h4>长尾蓝海</h4>
+      <p>避开 Sci-Fi、Romantasy 红海。Cooking、Art、Activity 等品类竞争低、利润率高。</p>
+    </div>
+    <div class="conclusion-item">
+      <h4>长青书运营</h4>
+      <p>仅 8.2% 图书在榜超 50 周。投资内容质量与长尾营销，一本长青书胜过十本快餐书。</p>
     </div>
   </div>
 </div>
@@ -485,10 +327,7 @@ strong { color: var(--text); font-weight: 600; }
 </div>
 
 <footer class="footer">
-  <div class="meta-tags">
-    <span>Python</span><span>pandas</span><span>matplotlib</span><span>seaborn</span><span>AI-Assisted</span>
-  </div>
-  <p>Amazon Books Market Intelligence Report · June 2026 · Data: Clean Amazon Books Dataset (500 records)</p>
+  <p>Amazon Books Market Intelligence Report · June 2026 · 12 Charts · Data: Clean Amazon Books Dataset (500 records) · Python + pandas + matplotlib + seaborn</p>
 </footer>
 
 </body>
