@@ -60,8 +60,16 @@ export function Projects({ projects }: Props) {
           </div>
         )}
 
+        {rest.length > 0 && (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+            {rest.map((project, i) => (
+              <ProjectCard key={project.slug} project={project} index={i} />
+            ))}
+          </div>
+        )}
+
         {aiTools.length > 0 && (
-          <div className="mb-12 max-w-2xl mx-auto">
+          <div className="max-w-2xl mx-auto">
             <div className="flex items-center gap-4 mb-4">
               <div className="flex-1 h-px bg-border/60" />
               <span className="text-xs text-muted-foreground/60 font-medium uppercase tracking-wider flex items-center gap-1.5">
@@ -88,14 +96,6 @@ export function Projects({ projects }: Props) {
                 </Link>
               ))}
             </div>
-          </div>
-        )}
-
-        {rest.length > 0 && (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {rest.map((project, i) => (
-              <ProjectCard key={project.slug} project={project} index={i} />
-            ))}
           </div>
         )}
       </div>
