@@ -110,7 +110,7 @@ const dict = {
         },
         {
           category: "业务理解",
-          skills: [],
+          skills: ["选品逻辑", "定价策略", "品类竞争分析", "蓝海赛道筛选"],
         },
         {
           category: "工具链",
@@ -278,7 +278,7 @@ const dict = {
         },
         {
           category: "Business Acumen",
-          skills: [],
+          skills: ["Product Selection", "Pricing Strategy", "Category Competition Analysis", "Blue Ocean Screening"],
         },
         {
           category: "Toolchain",
