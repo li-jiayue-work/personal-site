@@ -1,14 +1,11 @@
 name: Deploy to Alibaba Cloud OSS
-
 on:
   push:
     branches: [main]
   workflow_dispatch:
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,30 +28,22 @@ jobs:
             echo "❌ Build failed: 'out' directory not found"
             exit 1
           fi
-          echo "📦 Build output: $(du -sh out | cut -f1)"
-          echo "📄 File count: $(find out -type f | wc -l)"
-          echo "✅ Build verification passed"
+          echo "✅ Build output: $(du -sh out | cut -f1), $(find out -type f | wc -l) files"
 
       - name: Install ossutil
         run: |
-          curl -fsSL -o /usr/local/bin/ossutil https://gosspublic.alicdn.com/ossutil/1.7.19/ossutil64
-          chmod +x /usr/local/bin/ossutil
+          wget -q https://github.com/aliyun/ossutil/releases/download/v1.7.19/ossutil-v1.7.19-linux-amd64.zip
+          unzip -q ossutil-v1.7.19-linux-amd64.zip
+          sudo mv ossutil-v1.7.19-linux-amd64/ossutil /usr/local/bin/ossutil
           ossutil version
 
       - name: Deploy to OSS
+        env:
+          OSS_ACCESS_KEY_ID: ${{ secrets.ALIYUN_ACCESS_KEY_ID }}
+          OSS_ACCESS_KEY_SECRET: ${{ secrets.ALIYUN_ACCESS_KEY_SECRET }}
         run: |
-          ossutil sync out/ oss://my-personal-site/ \
-            --delete -f \
-            -e oss-cn-hongkong.aliyuncs.com \
-            -i "${{ secrets.ALIYUN_ACCESS_KEY_ID }}" \
-            -k "${{ secrets.ALIYUN_ACCESS_KEY_SECRET }}"
-          echo "🚀 Deployed to OSS successfully"
-
-      - name: Deployment summary
-        run: | 
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          echo "  ✅ Deployment completed"
-          echo "  🌐 Bucket:  my-personal-site"
-          echo "  📍 Region:  oss-cn-hongkong"
-          echo "  🕐 Time:    $(date -u)"
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          ossutil config -e oss-cn-hongkong.aliyuncs.com \
+                         -i $OSS_ACCESS_KEY_ID \
+                         -k $OSS_ACCESS_KEY_SECRET
+          ossutil sync out/ oss://my-personal-site/ --delete -f
+          echo "🚀 Deployed successfully"
