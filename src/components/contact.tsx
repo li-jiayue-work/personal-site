@@ -27,7 +27,6 @@ export function Contact() {
       label: t.contact.gitee,
       value: "gitee.com/llljy1111",
       href: "https://gitee.com/llljy1111",
-      note: true,
     },
     {
       icon: GlobeIcon,
