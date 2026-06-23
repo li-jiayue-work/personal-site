@@ -110,7 +110,7 @@ const dict = {
         },
         {
           category: "业务理解",
-          skills: ["用户分群", "漏斗分析", "留存分析", "RFM 模型", "增长策略"],
+          skills: [],
         },
         {
           category: "工具链",
@@ -278,7 +278,7 @@ const dict = {
         },
         {
           category: "Business Acumen",
-          skills: ["User Segmentation", "Funnel Analysis", "Retention Analysis", "RFM Model", "Growth Strategy"],
+          skills: [],
         },
         {
           category: "Toolchain",
