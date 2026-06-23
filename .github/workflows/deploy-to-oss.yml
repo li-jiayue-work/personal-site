@@ -32,8 +32,10 @@ jobs:
 
       - name: Install ossutil
         run: |
-          wget -q https://github.com/aliyun/ossutil/releases/download/v1.7.19/ossutil-v1.7.19-linux-amd64.zip
-          unzip -q ossutil-v1.7.19-linux-amd64.zip
+          wget --tries=5 --waitretry=3 -q \
+            https://github.com/aliyun/ossutil/releases/download/v1.7.19/ossutil-v1.7.19-linux-amd64.zip \
+            -O ossutil.zip
+          unzip -q ossutil.zip
           sudo mv ossutil-v1.7.19-linux-amd64/ossutil /usr/local/bin/ossutil
           ossutil version
 
