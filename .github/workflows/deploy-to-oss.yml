@@ -28,24 +28,31 @@ jobs:
             echo "❌ Build failed: 'out' directory not found"
             exit 1
           fi
-          echo "✅ Build output: $(du -sh out | cut -f1), $(find out -type f | wc -l) files"
+          echo "✅ $(find out -type f | wc -l) files ready"
 
-      - name: Install ossutil
-        run: |
-          wget --tries=5 --waitretry=3 -q \
-            https://github.com/aliyun/ossutil/releases/download/v1.7.19/ossutil-v1.7.19-linux-amd64.zip \
-            -O ossutil.zip
-          unzip -q ossutil.zip
-          sudo mv ossutil-v1.7.19-linux-amd64/ossutil /usr/local/bin/ossutil
-          ossutil version
-
-      - name: Deploy to OSS
+      - name: Deploy to OSS via Python
         env:
           OSS_ACCESS_KEY_ID: ${{ secrets.ALIYUN_ACCESS_KEY_ID }}
           OSS_ACCESS_KEY_SECRET: ${{ secrets.ALIYUN_ACCESS_KEY_SECRET }}
         run: |
-          ossutil config -e oss-cn-hongkong.aliyuncs.com \
-                         -i $OSS_ACCESS_KEY_ID \
-                         -k $OSS_ACCESS_KEY_SECRET
-          ossutil sync out/ oss://my-personal-site/ --delete -f
-          echo "🚀 Deployed successfully"
+          pip install oss2 --quiet
+          python3 << 'PYEOF'
+          import oss2, os, mimetypes
+          from pathlib import Path
+
+          auth = oss2.Auth(os.environ['OSS_ACCESS_KEY_ID'], os.environ['OSS_ACCESS_KEY_SECRET'])
+          bucket = oss2.Bucket(auth, 'https://oss-cn-hongkong.aliyuncs.com', 'my-personal-site')
+
+          out_dir = Path('out')
+          uploaded = 0
+          for f in out_dir.rglob('*'):
+              if f.is_file():
+                  key = str(f.relative_to(out_dir))
+                  mime = mimetypes.guess_type(str(f))[0] or 'application/octet-stream'
+                  bucket.put_object_from_file(key, str(f), headers={'Content-Type': mime})
+                  uploaded += 1
+                  if uploaded % 20 == 0:
+                      print(f'  uploaded {uploaded} files...')
+
+          print(f'🚀 Done! {uploaded} files deployed to OSS.')
+          PYEOF
