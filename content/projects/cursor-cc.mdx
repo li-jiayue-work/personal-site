@@ -1,29 +1,26 @@
 ---
-title: "AI 辅助开发工作区（cursor-cc）"
+title: "AI 辅助开发工作区"
 description: "基于 Claude Code 搭建的个人多项目工作区，用 Cursor 和 VS Code 两个入口协作，沉淀 AI 辅助开发的方法论与可复用资产。"
 tech: ["Claude Code", "Cursor", "VS Code"]
-result: "9 目录 monorepo 工作区，支撑 4 个完整项目交付，沉淀标准化工作流与可复制方法论"
-github: "https://github.com/li-jiayue-work/cursor-cc"
+result: "2 个仓库分工协作：一个干活产出，一个记录沉淀"
+github: "https://github.com/li-jiayue-work/ai-workspace"
 demo: ""
 featured: false
 ---
 
-## 工作区是什么
+## ai-workspace（干活的）
 
-一个 monorepo 结构的工作区，`active/` 放活跃项目、`archive/` 存已完成项目、`agents/` 管 Agent 和 Workflow、`memory/` 做跨会话经验沉淀——共 9 个目录按职责划分。根目录 `CLAUDE.md` 定义全局规范，在任何子目录下执行 Claude Code 时自动加载上下文。
+9 目录 monorepo 结构的工作区，`active/` 放活跃项目、`archive/` 存已完成项目、`agents/` 管 Agent 和 Workflow——每个目录按职责划分。根目录 `CLAUDE.md` 定义全局规范，在任何子目录下执行 Claude Code 时自动加载上下文。
 
-## 产出了什么
+**产出**：个人网站 · 两个 Amazon 数据分析项目 · 30+ HTML 模板库
 
-- **个人网站** — Next.js 16 + Tailwind CSS v4，MDX 驱动，中英双语
-- **亚马逊数据分析项目** — 两个完整数据挖掘项目（产品 + 图书），Python 全流程
-- **30+ HTML 模板库** — 标准化模板结构，含截图与构建脚本
-- **Workflow / Skill / Memory 方法论体系** — 标准化流程 + 可复用技能模块 + 经验沉淀机制
+## ai-workflow-notes（记录的）
 
-## 核心收获
+沉淀 AI 辅助开发的协作方法论，把每次成功的实践固化为可复用的标准。
 
-- **如何写让 AI 可执行的指令** — 上下文质量决定输出质量，CLAUDE.md 和 Memory 的投入是 ROI 最高的
-- **如何在 AI 辅助下保持项目控制力** — 外科手术式修改、Reviewer 强制检查、最小修改原则
-- **如何把工作流标准化** — 把每次成功的协作模式固化为 Workflow，从"靠运气"变成"靠流程"
+**包含**：CLAUDE.md 编写规范 · Workflow 流程定义 · 六层知识蒸馏体系 · 架构决策记录（ADR）
 
-[GitHub →](https://github.com/li-jiayue-work/cursor-cc)
-[Gitee →](https://gitee.com/llljy1111/cursor-cc)
+---
+
+[ai-workspace →](https://github.com/li-jiayue-work/ai-workspace)
+[ai-workflow-notes →](https://github.com/li-jiayue-work/ai-workflow-notes)
