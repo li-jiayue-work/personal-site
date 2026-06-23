@@ -10,15 +10,36 @@ featured: false
 
 ## ai-workspace（干活的）
 
-9 目录 monorepo 结构的工作区，`active/` 放活跃项目、`archive/` 存已完成项目、`agents/` 管 Agent 和 Workflow——每个目录按职责划分。根目录 `CLAUDE.md` 定义全局规范，在任何子目录下执行 Claude Code 时自动加载上下文。
+9 目录 monorepo 结构的工作区，每个目录按职责划分：
+
+- `active/` — 活跃项目，当前在开发
+- `archive/` — 已完成或暂停的项目，保留代码参考
+- `agents/` — 自定义 Agent、Workflow 定义、MCP 配置
+- `templates/` — 项目模板、配置模板
+- `snippets/` — 跨项目可复用的代码片段
+- `learning/` — 学习笔记
+- `assets/` — 图片、素材等静态资源
+- `memory/` — 跨会话持久记忆，Claude Code 自动管理
+
+根目录 `CLAUDE.md` 定义全局规范（技术栈、行为准则、目录约定），在任何子目录下执行 Claude Code 时自动加载，无需手动指定上下文。
 
 **产出**：个人网站 · 两个 Amazon 数据分析项目 · 30+ HTML 模板库
 
 ## ai-workflow-notes（记录的）
 
-沉淀 AI 辅助开发的协作方法论，把每次成功的实践固化为可复用的标准。
+沉淀 AI 辅助开发的协作方法论，把每次成功的实践固化为可复用的标准。包含五个模块：
 
-**包含**：CLAUDE.md 编写规范 · Workflow 流程定义 · 六层知识蒸馏体系 · 架构决策记录（ADR）
+- `architecture/` — 架构设计文档，记录技术选型与系统设计决策
+- `docs/` — 参考文档，外部工具说明与插件指南
+- `knowledge-base/` — 六层认知蒸馏体系，把碎片化对话转化为结构化知识
+- `workflows/` — 标准化流程定义，覆盖 Feature / Review / Debug / Release
+- `CLAUDE.md` — 行为规范，约束 AI 的输出质量与修改边界
+
+## 核心收获
+
+- **如何写让 AI 可执行的指令** — 上下文质量决定输出质量。把项目背景、技术决策、代码规范写进 CLAUDE.md，每次 AI 调用自动注入，输出准确度显著提升
+- **如何在 AI 辅助下保持项目控制力** — 外科手术式修改原则：只改必须改的，不顺手重构。Reviewer 强制检查，每次修改必须经过验证
+- **如何把工作流标准化为可复制流程** — 把成功的协作模式固化为 Workflow 和 Skill，把失败沉淀为 Memory。从靠运气遇到好结果，变成靠流程保证结果质量
 
 ---
 
