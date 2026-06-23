@@ -1,20 +1,20 @@
 ---
-title: "亚马逊印度电商商品市场分析"
-description: "基于 Amazon India 平台 1,465 条真实产品数据，综合运用探索性数据分析、K-Means 聚类与随机森林回归，系统揭示电商定价策略、用户评分规律与品类竞争格局。"
+title: 亚马逊印度电商商品市场分析
+description: 基于 Amazon India 平台 1,465 条真实产品数据，综合运用探索性数据分析、K-Means 聚类与随机森林回归，系统揭示电商定价策略、用户评分规律与品类竞争格局。
 tech: ["Python", "pandas", "matplotlib", "seaborn"]
-result: "分析 2928 条产品数据，产出 6 张可视化图表，覆盖品类格局、定价策略、品牌竞争等多维度"
-github: "https://github.com/li-jiayue-work/personal-site"
-demo: "/reports/amazon-analysis/"
+result: 分析 2928 条产品数据，产出 6 张可视化图表，覆盖品类格局、定价策略、品牌竞争等多维度
+github: https://github.com/li-jiayue-work/personal-site
+demo: /reports/amazon-analysis/
 featured: true
-dataset: "Kaggle / Amazon India 产品数据集（2023），1,465 条记录，16 个字段。覆盖 Electronics（35.9%）、Computers & Accessories（30.9%）、Home & Kitchen（30.6%）三大品类，含折后价、原价、折扣率、评分、评论数、产品描述、用户评价等完整字段。"
-toolchain: "DBeaver（数据探查）→ Python pandas（数据清洗与预处理）→ Matplotlib + Seaborn（11 张可视化）→ scikit-learn（K-Means + 随机森林建模）→ Claude Code（AI 洞察与报告生成）"
-conclusion: "折扣深度与用户评分呈弱负相关（r = −0.16），证明单纯降价不能有效提升满意度——产品力才是核心竞争力。K-Means 聚类（K=3）将产品分为三大策略群：低折扣冲量型（均价 ₹1,007，折扣 63.9%）、中价低折型（均价 ₹3,131，折扣 28.9%）、高价保利型（均价 ₹29,367，折扣 30.9%），为差异化运营提供量化依据。随机森林特征重要性分析显示价格相关特征对评分的贡献度最高，但模型 R² 仅 0.082，说明评分主要由不可观测的产品品质、品牌口碑等因素决定。"
+dataset: Kaggle / Amazon India 产品数据集（2023），1,465 条记录，16 个字段。覆盖 Electronics（35.9%）、Computers & Accessories（30.9%）、Home & Kitchen（30.6%）三大品类，含折后价、原价、折扣率、评分、评论数、产品描述、用户评价等完整字段。
+toolchain: DBeaver（数据探查）→ Python pandas（数据清洗与预处理）→ Matplotlib + Seaborn（11 张可视化）→ scikit-learn（K-Means + 随机森林建模）→ Claude Code（AI 洞察与报告生成）
+conclusion: 折扣深度与用户评分呈弱负相关（r = −0.16），证明单纯降价不能有效提升满意度——产品力才是核心竞争力。K-Means 聚类（K=3）将产品分为三大策略群：低折扣冲量型（均价 ₹1,007，折扣 63.9%）、中价低折型（均价 ₹3,131，折扣 28.9%）、高价保利型（均价 ₹29,367，折扣 30.9%），为差异化运营提供量化依据。随机森林特征重要性分析显示价格相关特征对评分的贡献度最高，但模型 R² 仅 0.082，说明评分主要由不可观测的产品品质、品牌口碑等因素决定。
 charts: ["chart_01_category_dist", "chart_02_rating_hist", "chart_03_discount_hist", "chart_04_price_scatter", "chart_05_avg_discount", "chart_06_rating_vs_discount", "chart_07_rating_boxplot", "chart_08_correlation", "chart_09_kmeans", "chart_10_random_forest", "chart_11_price_buckets"]
 insights: ["识别出 Home & Kitchen 品类需求稳定竞争可测，折扣率主流区间 32%-63%，建议新品以 45%-55% 折扣锚定 ₹500-₹2,000 价格带入市"]
 ---
 ## 项目背景
 
-本项目是《数据挖掘》课程的综合课程设计，以 Kaggle 公开发布的 Amazon India 产品数据集为研究对象。全球电商市场持续增长，Amazon 作为最大在线零售平台，其产品数据蕴含丰富的定价策略、用户行为与市场竞争信息。然而在实际运营中，"高折扣必然带来高评分"的直觉假设从未被系统检验。
+本项目是《数据挖掘》课程的综合课程设计，以 Kaggle 公开发布的 Amazon India 产品数据集为研究对象。全球电商市场持续增长，Amazon 作为最大在线零售平台，其产品数据蕴含丰富的定价策略、用户行为与市场竞争信息。然而在实际运营中，高折扣必然带来高评分的直觉假设从未被系统检验。
 
 本项目遵循 CRISP-DM（跨行业数据挖掘标准流程）框架，完整实施从数据理解、数据准备、探索性分析到机器学习建模的全流程，旨在回答一个核心问题：**价格与折扣究竟在多大程度上影响用户满意度？**
 
