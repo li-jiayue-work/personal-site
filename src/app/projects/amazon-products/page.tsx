@@ -73,7 +73,7 @@ export default function AmazonProductsPage() {
             Data Mining Course Project
           </p>
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground mb-6">
-            亚马逊产品市场全景分析
+            亚马逊印度电商商品市场分析
           </h1>
 
           <div className="flex justify-center gap-6 sm:gap-10 flex-wrap mb-8">
