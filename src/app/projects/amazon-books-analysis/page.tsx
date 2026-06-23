@@ -76,7 +76,7 @@ export default function AmazonBooksPage() {
             Business Data Analysis Project
           </p>
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground mb-6">
-            亚马逊畅销书市场深度分析
+            亚马逊畅销书市场分析
           </h1>
 
           {/* KPI row */}
