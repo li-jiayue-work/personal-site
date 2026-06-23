@@ -1,44 +1,29 @@
 ---
-title: "AI 开发工作区（cursor-cc）"
-description: "基于 Cursor IDE + Claude Code 搭建的多项目 AI 辅助开发工作区，含标准化项目体系、Agent 工作流、MCP 工具链与知识沉淀框架。"
-tech: ["Cursor", "Claude Code", "Agent", "MCP", "Workflow", "TypeScript"]
-result: "标准化 9 目录工作区架构，Agent 工作流缩短开发周期 60%，支撑 3+ 项目并行交付"
+title: "AI 辅助开发工作区（cursor-cc）"
+description: "基于 Claude Code 搭建的个人多项目工作区，用 Cursor 和 VS Code 两个入口协作，沉淀 AI 辅助开发的方法论与可复用资产。"
+tech: ["Claude Code", "Cursor", "VS Code"]
+result: "9 目录 monorepo 工作区，支撑 4 个完整项目交付，沉淀标准化工作流与可复制方法论"
 github: "https://github.com/li-jiayue-work/cursor-cc"
 demo: ""
 featured: false
 ---
 
-## 工作区架构（9 目录结构）
+## 工作区是什么
 
-- **src/** — 核心代码目录，按项目分子目录管理，统一的代码规范与类型标注
-- **tests/** — pytest 测试框架，所有核心模块有测试覆盖
-- **docs/** — 产品文档、领域知识、业务分析、插件说明等分类沉淀
-- **architecture/** — 前端、后端、数据库、API、Agent 系统等架构设计文档
-- **workflows/** — Feature / Review / Debug / Release 四套标准化流程定义
-- **memory/** — 技术决策（ADR）、经验学习、错误复盘、代码模式四维沉淀
-- **knowledge-base/** — 六层认知蒸馏体系（笔记→观察→模式→原则→框架→观点）
-- **.claude/** — Agents 角色定义、Skills 技能模块、Commands 自定义命令
-- **scratch/** — 实验性代码、一次性脚本、原型验证的隔离沙箱
+一个 monorepo 结构的工作区，`active/` 放活跃项目、`archive/` 存已完成项目、`agents/` 管 Agent 和 Workflow、`memory/` 做跨会话经验沉淀——共 9 个目录按职责划分。根目录 `CLAUDE.md` 定义全局规范，在任何子目录下执行 Claude Code 时自动加载上下文。
 
-## 活跃项目
+## 产出了什么
 
-- **个人主页网站** — Next.js 16 + Tailwind CSS v4 + shadcn/ui，MDX 驱动内容管理，中英双语，暗色模式支持。展示 5 个项目作品，含完整数据分析报告与交互式可视化
-- **Amazon 数据分析项目** — 两个独立分析项目（产品 + 图书），Python + pandas + scikit-learn，覆盖 EDA、K-Means 聚类、随机森林回归，产出 25+ 张专业图表与 2 份 HTML 完整报告
+- **个人网站** — Next.js 16 + Tailwind CSS v4，MDX 驱动，中英双语
+- **亚马逊数据分析项目** — 两个完整数据挖掘项目（产品 + 图书），Python 全流程
+- **30+ HTML 模板库** — 标准化模板结构，含截图与构建脚本
+- **Workflow / Skill / Memory 方法论体系** — 标准化流程 + 可复用技能模块 + 经验沉淀机制
 
-## Agent & Workflow 体系
+## 核心收获
 
-- **Planner Agent** — 需求分析 → 方案设计 → 任务拆解，输出结构化执行计划
-- **Reviewer Agent** — 代码审查 → 缺陷检测 → 重构建议，强制检查不跳过
-- **Debugger Agent** — 错误定位 → 根因分析 → 修复方案，系统性排错
-- **Architect Agent** — 技术选型 → 架构设计 → 接口定义，重大变更前的强制评审
-- **MCP 工具链** — GitHub / DuckDuckGo / SQLite 等多源工具接入，零全局安装
-
-## 开发原则
-
-- **最小修改原则** — 只改必须改的代码，拒绝顺手重构。每次修改前必须先阅读相关代码，输出分析结论
-- **Reviewer 强制** — 任何非 trivial 修改必须经过 Reviewer Agent 检查，不允许跳过检查步骤
-- **Memory 沉淀** — 每次任务完成后更新 memory/ 目录，把经验从临时记忆固化为永久知识
-- **工作流优先** — 遵循 workflows/ 中定义的标准流程，不即兴发挥。标准化比聪明更重要
+- **如何写让 AI 可执行的指令** — 上下文质量决定输出质量，CLAUDE.md 和 Memory 的投入是 ROI 最高的
+- **如何在 AI 辅助下保持项目控制力** — 外科手术式修改、Reviewer 强制检查、最小修改原则
+- **如何把工作流标准化** — 把每次成功的协作模式固化为 Workflow，从"靠运气"变成"靠流程"
 
 [GitHub →](https://github.com/li-jiayue-work/cursor-cc)
 [Gitee →](https://gitee.com/llljy1111/cursor-cc)

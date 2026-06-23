@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { useLang } from "@/components/language-provider";
 import type { ProjectMeta } from "@/lib/projects";
 
-const AI_TOOL_SLUGS = ["cursor-cc", "growth-workflow"];
+const AI_TOOL_SLUGS = ["cursor-cc"];
 
 interface Props {
   projects: ProjectMeta[];
