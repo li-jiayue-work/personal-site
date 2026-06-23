@@ -1,7 +1,7 @@
 ---
 title: "亚马逊产品市场全景分析"
 description: "基于 2928 条 Amazon 产品真实数据的多品类市场分析，覆盖 Electronics、Home & Kitchen、Computers & Accessories 三大品类。"
-tech: ["Python", "pandas", "matplotlib", "seaborn", "Data Visualization"]
+tech: ["Python", "pandas", "matplotlib", "seaborn"]
 result: "分析 2928 条产品数据，产出 6 张可视化图表，覆盖品类格局、定价策略、品牌竞争等多维度"
 github: "https://github.com/li-jiayue-work/personal-site"
 demo: "/reports/amazon-products.html"
@@ -10,7 +10,7 @@ dataset: "Kaggle / 2928 条 Amazon 产品真实数据，覆盖 Electronics（35.
 toolchain: "DBeaver（数据清洗）→ Python（分析）→ Claude Code（可视化报告）"
 conclusion: "高折扣不等于高评分——discount_percentage 与 rating 几乎零相关（r < 0.11），降价引流但不留客，产品力才是根本。Home & Kitchen 品类评分中位数最高且方差最小，新品首发优选赛道；Cables & Accessories 有 480 个 SKU 激烈竞争，应避开正面竞争，选择更细分的子品类做差异化切入。"
 charts: ["output_01_overview", "output_04_category_comparison", "output_06_correlation"]
-insights: ["高折扣不是万能药——discount_percentage 与 rating 几乎零相关，运营重点应从"打价格战"转向"提升产品力"", "Home & Kitchen 是安全赛道——评分中位数最高且方差最小，新品首发 ROI 更有保障", "中等折扣（30%–60%）是定价甜蜜点——建议新品折扣设为 45%–55%，测试后微调", "避开 Cables & Accessories 红海——480 个 SKU 充分竞争，无供应链优势不要正面切入", "评分不只看均值——优先关注"评分 ≥ 4.3 且评论数 > 1000"的商品，质量信号更可信"]
+insights: ["识别出 Home & Kitchen 品类需求稳定竞争可测，折扣率主流区间 32%-63%，建议新品以 45%-55% 折扣锚定 ₹500-₹2,000 价格带入市"]
 ---
 ## 项目背景
 
