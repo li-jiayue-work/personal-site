@@ -219,7 +219,7 @@ export default function AmazonBooksPage() {
           </p>
           <h2 className="text-2xl font-bold tracking-tight mb-4">查看完整报告</h2>
           <p className="text-sm text-muted-foreground max-w-md mx-auto mb-8 leading-relaxed">
-            包含 7 张完整图表、详细 EDA 过程、Python 分析代码与完整业务分析报告
+            包含 12 张可视化图表、多维度数据分析与 AI 驱动的运营策略建议
           </p>
 
           <a
