@@ -1,5 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeftIcon, ExternalLinkIcon, FileTextIcon } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "亚马逊印度电商商品市场分析 | 李佳悦",
+  description: "基于 Amazon India 平台 1,465 条真实产品数据，综合运用探索性数据分析、K-Means 聚类与随机森林回归，揭示定价规律与品类竞争格局。",
+  openGraph: {
+    title: "亚马逊印度电商商品市场分析 | 李佳悦",
+    description: "基于 1,465 条真实数据的 Amazon India 市场分析。",
+    type: "website",
+  },
+};
 
 const KPIS = [
   { value: "1,465", label: "Products Analyzed" },

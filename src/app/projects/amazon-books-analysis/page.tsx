@@ -1,5 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeftIcon, ExternalLinkIcon, BarChart3Icon, FileTextIcon } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "亚马逊畅销书市场分析 | 李佳悦",
+  description: "基于 500 本 Amazon 畅销书真实数据的多维度市场分析，含可视化图表与 AI 驱动的运营策略建议。",
+  openGraph: {
+    title: "亚马逊畅销书市场分析 | 李佳悦",
+    description: "基于 500 本 Amazon 畅销书真实数据的多维度市场分析。",
+    type: "website",
+  },
+};
 
 const KPIS = [
   { value: "500", label: "Books Analyzed" },

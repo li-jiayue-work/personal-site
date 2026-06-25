@@ -11,7 +11,7 @@ interface Props {
 }
 
 // Slugs that have their own standalone page.tsx
-const STANDALONE_SLUGS = ["amazon-books-analysis", "amazon-products"];
+const STANDALONE_SLUGS = ["amazon-books-analysis", "amazon-products", "csdn-content"];
 
 export function generateStaticParams() {
   return getAllProjects()
