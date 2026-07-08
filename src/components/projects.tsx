@@ -92,7 +92,7 @@ export function Projects({ projects }: Props) {
                       {project.description}
                     </p>
                   </div>
-                  <ArrowRightIcon className="h-3.5 w-3.5 text-muted-foreground/30 group-hover:text-accent shrink-0 ml-3 transition-colors" />
+                  <ArrowRightIcon className="h-3.5 w-3.5 text-muted-foreground/30 group-hover:text-primary shrink-0 ml-3 transition-colors" />
                 </Link>
               ))}
             </div>
@@ -120,12 +120,12 @@ function ProjectCard({
       transition={{ duration: 0.4, delay: index * 0.1 }}
     >
       <Link href={`/projects/${project.slug}`} className="block">
-        <Card className="group h-full border-border/60 hover:border-accent/30 hover:shadow-sm transition-all duration-200 cursor-pointer">
+        <Card className="group h-full border-border/60 hover:border-primary/30 hover:shadow-md transition-all duration-300 cursor-pointer">
           {featured ? (
             <div className="p-6 sm:flex sm:gap-6">
               <div className="flex-1 min-w-0">
                 <div className="flex items-start justify-between gap-2 mb-3">
-                  <h3 className="text-xl font-semibold tracking-tight group-hover:text-accent transition-colors">
+                  <h3 className="text-xl font-semibold tracking-tight group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
                 </div>
@@ -154,7 +154,7 @@ function ProjectCard({
           ) : (
             <>
               <CardHeader>
-                <CardTitle className="text-lg group-hover:text-accent transition-colors">
+                <CardTitle className="text-lg group-hover:text-primary transition-colors">
                   {project.title}
                 </CardTitle>
                 <CardDescription className="line-clamp-2">

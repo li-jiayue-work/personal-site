@@ -37,8 +37,8 @@ export function About() {
           <Card className="border-border/60">
             <CardHeader>
               <div className="flex items-start gap-4 flex-wrap">
-                <div className="h-10 w-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
-                  <GraduationCapIcon className="h-5 w-5 text-accent" />
+                <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                  <GraduationCapIcon className="h-5 w-5 text-primary" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <CardTitle className="text-lg">{t.education.school}</CardTitle>
@@ -48,7 +48,7 @@ export function About() {
                   <Badge variant="outline" className="font-normal">
                     {t.education.period}
                   </Badge>
-                  <Badge variant="secondary" className="font-normal bg-accent/10 text-accent">
+                  <Badge variant="secondary" className="font-normal bg-primary/10 text-primary">
                     {t.education.gpa}
                   </Badge>
                   <Badge variant="secondary" className="font-normal">
@@ -69,7 +69,7 @@ export function About() {
                     >
                       <span className="text-sm">{course.name}</span>
                       {"score" in course && course.score && (
-                        <span className="text-xs font-mono font-medium text-accent ml-1">
+                        <span className="text-xs font-mono font-medium text-primary ml-1">
                           {course.score}
                         </span>
                       )}

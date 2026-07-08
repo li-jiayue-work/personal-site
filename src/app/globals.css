@@ -49,77 +49,72 @@
 }
 
 :root {
-  /* Geist-style neutral gray base — text hierarchy via grayscale, not hue */
-  --background: oklch(1 0 0);                    /* #ffffff — Geist background-100 */
-  --foreground: oklch(0.17 0.006 265);           /* #171717 — Geist gray-1000 主文字 */
+  --background: oklch(0.985 0 0);
+  --foreground: oklch(0.17 0.006 265);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.17 0.006 265);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.17 0.006 265);
-  /* Primary = 正文色，不是强调色（Geist 哲学：primary 是近黑） */
-  --primary: oklch(0.17 0.006 265);              /* #171717 */
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.965 0.002 260);           /* #f2f2f2 — Geist gray-100 */
-  --secondary-foreground: oklch(0.38 0.005 260);  /* #4d4d4d — Geist gray-900 */
-  --muted: oklch(0.965 0.002 260);
-  --muted-foreground: oklch(0.55 0.01 260);      /* #8f8f8f — Geist gray-700 */
-  /* Accent = 暖青 Teal, 仅用于聚焦、链接、每视图一个主操作 */
-  --accent: oklch(0.55 0.12 188);                /* teal-600 暖青 */
-  --accent-foreground: oklch(1 0 0);
-  --destructive: oklch(0.577 0.245 27.325);       /* red 保持不变 */
-  --border: oklch(0.91 0.005 260);               /* Geist gray-400 */
-  --input: oklch(0.91 0.005 260);
-  --ring: oklch(0.55 0.12 188);                  /* 聚焦环 = accent */
-  /* Chart 色板 — teal 同色系渐变，用于数据可视化 */
-  --chart-1: oklch(0.55 0.12 188);               /* teal-600 */
-  --chart-2: oklch(0.48 0.10 185);
-  --chart-3: oklch(0.42 0.09 182);
-  --chart-4: oklch(0.36 0.07 178);
-  --chart-5: oklch(0.30 0.05 175);
-  --radius: 0.375rem;                             /* 6px — Geist rounded-sm 统一圆角 */
-  --sidebar: oklch(1 0 0);
+  --primary: oklch(0.52 0.18 260);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.96 0.005 260);
+  --secondary-foreground: oklch(0.25 0.02 260);
+  --muted: oklch(0.96 0.005 260);
+  --muted-foreground: oklch(0.52 0.02 260);
+  --accent: oklch(0.94 0.03 260);
+  --accent-foreground: oklch(0.25 0.02 260);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.9 0.01 260);
+  --input: oklch(0.9 0.01 260);
+  --ring: oklch(0.52 0.18 260);
+  --chart-1: oklch(0.52 0.18 260);
+  --chart-2: oklch(0.45 0.14 240);
+  --chart-3: oklch(0.42 0.12 250);
+  --chart-4: oklch(0.39 0.08 255);
+  --chart-5: oklch(0.33 0.05 260);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.17 0.006 265);
-  --sidebar-primary: oklch(0.17 0.006 265);
-  --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.965 0.002 260);
-  --sidebar-accent-foreground: oklch(0.38 0.005 260);
-  --sidebar-border: oklch(0.91 0.005 260);
-  --sidebar-ring: oklch(0.55 0.12 188);
+  --sidebar-primary: oklch(0.52 0.18 260);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.96 0.005 260);
+  --sidebar-accent-foreground: oklch(0.25 0.02 260);
+  --sidebar-border: oklch(0.9 0.01 260);
+  --sidebar-ring: oklch(0.52 0.18 260);
 }
 
 .dark {
-  /* Geist dark: 真黑底 + 中性灰度 + 暖青强调 */
-  --background: oklch(0 0 0);                    /* #000000 — Geist dark background-100 */
-  --foreground: oklch(0.93 0.004 260);           /* #ededed — Geist dark gray-1000 */
-  --card: oklch(0 0 0);
-  --card-foreground: oklch(0.93 0.004 260);
-  --popover: oklch(0.1 0.004 260);               /* #1a1a1a — Geist dark gray-100 */
-  --popover-foreground: oklch(0.93 0.004 260);
-  --primary: oklch(0.93 0.004 260);              /* #ededed */
-  --primary-foreground: oklch(0 0 0);
-  --secondary: oklch(0.1 0.004 260);             /* #1a1a1a */
-  --secondary-foreground: oklch(0.93 0.004 260);
-  --muted: oklch(0.12 0.005 260);
-  --muted-foreground: oklch(0.65 0.01 260);      /* Geist dark gray-900 */
-  --accent: oklch(0.6 0.14 188);                 /* teal-400 暗色下提亮 */
-  --accent-foreground: oklch(0 0 0);
+  --background: oklch(0.13 0.01 260);
+  --foreground: oklch(0.94 0.005 260);
+  --card: oklch(0.16 0.01 260);
+  --card-foreground: oklch(0.94 0.005 260);
+  --popover: oklch(0.16 0.01 260);
+  --popover-foreground: oklch(0.94 0.005 260);
+  --primary: oklch(0.65 0.18 260);
+  --primary-foreground: oklch(0.13 0.01 260);
+  --secondary: oklch(0.2 0.015 260);
+  --secondary-foreground: oklch(0.94 0.005 260);
+  --muted: oklch(0.2 0.015 260);
+  --muted-foreground: oklch(0.6 0.04 260);
+  --accent: oklch(0.22 0.04 260);
+  --accent-foreground: oklch(0.94 0.005 260);
   --destructive: oklch(0.55 0.2 22);
-  --border: oklch(0.18 0.008 260);               /* Geist dark gray-400 */
-  --input: oklch(0.18 0.008 260);
-  --ring: oklch(0.6 0.14 188);                   /* 聚焦环 = dark accent */
-  --chart-1: oklch(0.6 0.14 188);
-  --chart-2: oklch(0.53 0.12 185);
-  --chart-3: oklch(0.47 0.10 182);
-  --chart-4: oklch(0.40 0.08 178);
-  --chart-5: oklch(0.34 0.06 175);
-  --sidebar: oklch(0 0 0);
-  --sidebar-foreground: oklch(0.93 0.004 260);
-  --sidebar-primary: oklch(0.93 0.004 260);
-  --sidebar-primary-foreground: oklch(0 0 0);
-  --sidebar-accent: oklch(0.1 0.004 260);
-  --sidebar-accent-foreground: oklch(0.93 0.004 260);
-  --sidebar-border: oklch(0.18 0.008 260);
-  --sidebar-ring: oklch(0.6 0.14 188);
+  --border: oklch(0.25 0.02 260);
+  --input: oklch(0.25 0.02 260);
+  --ring: oklch(0.65 0.18 260);
+  --chart-1: oklch(0.65 0.18 260);
+  --chart-2: oklch(0.6 0.14 240);
+  --chart-3: oklch(0.55 0.12 250);
+  --chart-4: oklch(0.5 0.08 255);
+  --chart-5: oklch(0.45 0.05 260);
+  --sidebar: oklch(0.13 0.01 260);
+  --sidebar-foreground: oklch(0.94 0.005 260);
+  --sidebar-primary: oklch(0.65 0.18 260);
+  --sidebar-primary-foreground: oklch(0.13 0.01 260);
+  --sidebar-accent: oklch(0.2 0.015 260);
+  --sidebar-accent-foreground: oklch(0.94 0.005 260);
+  --sidebar-border: oklch(0.25 0.02 260);
+  --sidebar-ring: oklch(0.65 0.18 260);
 }
 
 @layer base {
@@ -134,4 +129,8 @@
   }
 }
 
-@layer utilities {}
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent;
+  }
+}

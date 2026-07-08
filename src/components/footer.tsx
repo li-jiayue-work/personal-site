@@ -15,7 +15,7 @@ export function Footer() {
             href="https://nextjs.org"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium text-foreground hover:text-accent transition-colors"
+            className="font-medium text-foreground hover:text-primary transition-colors"
           >
             Next.js
           </a>
@@ -24,7 +24,7 @@ export function Footer() {
             href="https://tailwindcss.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium text-foreground hover:text-accent transition-colors"
+            className="font-medium text-foreground hover:text-primary transition-colors"
           >
             Tailwind
           </a>
@@ -33,7 +33,7 @@ export function Footer() {
             href="https://ui.shadcn.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium text-foreground hover:text-accent transition-colors"
+            className="font-medium text-foreground hover:text-primary transition-colors"
           >
             shadcn/ui
           </a>
