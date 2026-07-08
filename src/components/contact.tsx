@@ -70,10 +70,10 @@ export function Contact() {
                 rel="noopener noreferrer"
                 className="block group"
               >
-                <Card className="border-border/60 hover:border-primary/30 hover:shadow-md transition-all duration-300 h-full">
+                <Card className="border-border/60 hover:border-accent/30 hover:shadow-sm transition-all duration-200 h-full">
                   <CardContent className="p-6 flex items-center gap-4">
-                    <div className="h-10 w-10 rounded-lg bg-accent flex items-center justify-center shrink-0 group-hover:bg-primary/10 transition-colors">
-                      <channel.icon className="h-5 w-5 text-primary" />
+                    <div className="h-10 w-10 rounded-lg bg-accent flex items-center justify-center shrink-0 transition-colors">
+                      <channel.icon className="h-5 w-5 text-accent-foreground" />
                     </div>
                     <div className="min-w-0">
                       <div className="flex items-center gap-2">
@@ -86,7 +86,7 @@ export function Contact() {
                           </span>
                         )}
                       </div>
-                      <p className="text-sm font-medium group-hover:text-primary transition-colors truncate">
+                      <p className="text-sm font-medium group-hover:text-accent transition-colors truncate">
                         {channel.value}
                       </p>
                     </div>

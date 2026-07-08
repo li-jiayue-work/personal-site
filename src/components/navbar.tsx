@@ -63,7 +63,7 @@ export function Navbar() {
           onClick={(e) => { e.preventDefault(); handleClick("#hero"); }}
           className="font-semibold text-lg tracking-tight"
         >
-          李佳悦<span className="text-primary">.</span>
+          李佳悦<span className="text-accent">.</span>
         </a>
 
         <div className="hidden md:flex items-center gap-1">

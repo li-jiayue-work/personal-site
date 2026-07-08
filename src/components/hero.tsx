@@ -32,7 +32,7 @@ export function Hero() {
             {t.hero.name}
           </h1>
 
-          <p className="text-xl sm:text-2xl text-gradient font-semibold">
+          <p className="text-xl sm:text-2xl text-secondary-foreground font-semibold">
             {t.hero.tagline}
           </p>
 
